@@ -8,8 +8,7 @@ import {
   GraduationCap, 
   FolderGit2, 
   ExternalLink, 
-  Briefcase,
-  Sparkles
+  Briefcase
 } from 'lucide-react';
 
 export default function Home() {
@@ -64,22 +63,19 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0e0e10] text-zinc-100 relative overflow-hidden font-sans scroll-smooth">
+    <div className="min-h-screen bg-[#0e0e10] text-zinc-100 relative font-sans scroll-smooth">
       
       {/* Background Decorative Purple Glows (Twitch Vibe) */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/15 rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute top-2/3 right-1/4 w-[450px] h-[450px] bg-violet-600/10 rounded-full blur-[130px] pointer-events-none" />
 
-      {/* ==================== NAVBAR / HEADER ==================== */}
-      <header className="sticky top-0 z-50 bg-[#0e0e10]/80 backdrop-blur-md border-b border-zinc-800/80 transition-all">
+      {/* ==================== NAVBAR / HEADER (FIXED TO TOP) ==================== */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0e0e10]/85 backdrop-blur-md border-b border-zinc-800/80 transition-all">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           
-          {/* Logo / Brand Name */}
-          <a href="#" className="flex items-center gap-2 text-lg font-bold tracking-tight text-white hover:text-purple-400 transition-colors">
-            <span className="p-1.5 rounded-lg bg-purple-600/20 text-purple-400 border border-purple-500/30">
-              <Sparkles className="w-4 h-4" />
-            </span>
-            <span>Jirat.dev</span>
+          {/* Brand Name (JIRAT PANUNTA) */}
+          <a href="#" className="text-base md:text-lg font-extrabold tracking-wider text-white hover:text-purple-400 transition-colors uppercase">
+            JIRAT PANUNTA
           </a>
 
           {/* Navigation Links */}
@@ -104,10 +100,11 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-6 py-12 relative space-y-24">
+      {/* Main Content with Padding Top to offset fixed header */}
+      <main className="max-w-6xl mx-auto px-6 pt-20 pb-12 relative space-y-24">
 
         {/* ==================== 1. EDITORIAL HERO SECTION ==================== */}
-        <section className="relative min-h-[80vh] flex items-center justify-center py-8 overflow-hidden">
+        <section id="about" className="relative min-h-[80vh] flex items-center justify-center py-8 overflow-hidden">
           
           {/* Background Huge Repeating Typography Watermark */}
           <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none opacity-5 leading-none font-extrabold tracking-widest text-[11vw] uppercase text-white space-y-2">
@@ -129,7 +126,7 @@ export default function Home() {
                 <div className="relative w-full h-[420px] rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl">
                   {/* eslint-disable-next-html-link */}
                   <img
-                    src="/profile.jpg"
+                    src="/profile.png"
                     alt="Jirat Panunta"
                     className="w-full h-full object-cover object-top"
                     onError={(e) => {
@@ -168,7 +165,7 @@ export default function Home() {
 
               {/* Bio Summary */}
               <p className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-xl">
-                สวัสดีครับ ผม <strong className="text-white">จิรัฏฐ์ ปานันตา (Jirat Panunta)</strong> นิสิตสาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยพะเยา (GPA 3.68) มุ่งมั่นที่จะเรียนรู้ พัฒนาแอปพลิเคชัน และนำทักษะไปต่อยอดการทำงานจริงร่วมกับทีม
+                สวัสดีครับ ผม <strong className="text-white">จิรัฏฐ์ ปานันตา (Jirat Panunta)</strong> นิสิตสาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยพะเยา (GPA 3.68)[cite: 1] มุ่งมั่นที่จะเรียนรู้ พัฒนาแอปพลิเคชัน และนำทักษะไปต่อยอดการทำงานจริงร่วมกับทีม[cite: 1]
               </p>
 
               {/* Contact Links as Pill Badges */}
