@@ -1,14 +1,13 @@
+'use client';
+
 import React from 'react';
 import { 
-  ArrowRight, 
   Download, 
   Mail, 
   Code2, 
   GraduationCap, 
   FolderGit2, 
-  ExternalLink,
-  Phone,
-  MapPin,
+  ExternalLink, 
   Briefcase,
   Sparkles
 } from 'lucide-react';
@@ -68,12 +67,12 @@ export default function Home() {
     <div className="min-h-screen bg-[#0e0e10] text-zinc-100 relative overflow-hidden font-sans scroll-smooth">
       
       {/* Background Decorative Purple Glows (Twitch Vibe) */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-purple-600/15 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-2/3 right-1/4 w-[450px] h-[450px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/15 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute top-2/3 right-1/4 w-[450px] h-[450px] bg-violet-600/10 rounded-full blur-[130px] pointer-events-none" />
 
       {/* ==================== NAVBAR / HEADER ==================== */}
       <header className="sticky top-0 z-50 bg-[#0e0e10]/80 backdrop-blur-md border-b border-zinc-800/80 transition-all">
-        <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           
           {/* Logo / Brand Name */}
           <a href="#" className="flex items-center gap-2 text-lg font-bold tracking-tight text-white hover:text-purple-400 transition-colors">
@@ -85,6 +84,7 @@ export default function Home() {
 
           {/* Navigation Links */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+            <a href="#about" className="hover:text-purple-400 transition-colors">เกี่ยวกับฉัน</a>
             <a href="#education-experience" className="hover:text-purple-400 transition-colors">ประวัติ & ประสบการณ์</a>
             <a href="#skills" className="hover:text-purple-400 transition-colors">ทักษะ</a>
             <a href="#projects" className="hover:text-purple-400 transition-colors">ผลงาน</a>
@@ -104,77 +104,119 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-6 py-8 relative">
+      <main className="max-w-6xl mx-auto px-6 py-12 relative space-y-24">
 
-        {/* ==================== 1. HERO SECTION ==================== */}
-        <section className="min-h-[75vh] flex flex-col justify-center items-center text-center space-y-8 py-12">
+        {/* ==================== 1. EDITORIAL HERO SECTION ==================== */}
+        <section className="relative min-h-[80vh] flex items-center justify-center py-8 overflow-hidden">
           
-          {/* Status Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#18181b] border border-purple-500/20 text-xs md:text-sm text-zinc-300 shadow-inner">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-            </span>
-            พร้อมรับโอกาสฝึกงาน (Computer Science Intern)
+          {/* Background Huge Repeating Typography Watermark */}
+          <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none opacity-5 leading-none font-extrabold tracking-widest text-[11vw] uppercase text-white space-y-2">
+            <div>PORTFOLIO</div>
+            <div>PORTFOLIO</div>
+            <div>PORTFOLIO</div>
           </div>
 
-          {/* Headlines */}
-          <div className="space-y-3">
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
-              สวัสดีครับ, ผม <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-400 to-fuchsia-400">Jirat Panunta</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-zinc-400 font-medium">
-              Computer Science Student & Mobile / Software Developer Intern
-            </p>
-          </div>
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center z-10">
+            
+            {/* Left Column: Image Card with Frame & Overlapping Quote */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative w-full max-w-sm">
+                
+                {/* Outer Border Accent Box */}
+                <div className="absolute -inset-2 rounded-2xl border-2 border-purple-500/80 pointer-events-none" />
 
-          {/* Short Bio (Resume Summary) */}
-          <p className="text-zinc-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            นิสิตสาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยพะเยา (GPA 3.68) มีความสนใจในการพัฒนาแอปพลิเคชันมือถือและซอฟต์แวร์ มุ่งมั่นที่จะเรียนรู้และต่อยอดทักษะจริงในสภาพแวดล้อมการทำงานร่วมกับทีม
-          </p>
+                {/* Profile Image Container */}
+                <div className="relative w-full h-[420px] rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl">
+                  {/* eslint-disable-next-html-link */}
+                  <img
+                    src="/profile.jpg"
+                    alt="Jirat Panunta"
+                    className="w-full h-full object-cover object-top"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                  {/* Placeholder Background in case profile.jpg is missing */}
+                  <div className="absolute inset-0 -z-10 bg-gradient-to-t from-zinc-950 via-zinc-900 to-zinc-800 flex flex-col items-center justify-center p-6 text-center text-zinc-500">
+                    <span className="text-4xl mb-2">👨‍💻</span>
+                    <span className="text-xs">วางรูปโปรไฟล์ที่ public/profile.jpg</span>
+                  </div>
+                </div>
 
-          {/* Contact Details Quick Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs md:text-sm text-zinc-400 pt-2">
-            <a href="mailto:panuntajirat@gmail.com" className="flex items-center gap-1.5 hover:text-purple-400 transition-colors">
-              <Mail className="w-4 h-4 text-purple-400" />
-              panuntajirat@gmail.com
-            </a>
-            <span className="text-zinc-700 hidden sm:inline">•</span>
-            <a href="tel:0948760595" className="flex items-center gap-1.5 hover:text-purple-400 transition-colors">
-              <Phone className="w-4 h-4 text-purple-400" />
-              094-876-0595
-            </a>
-            <span className="text-zinc-700 hidden sm:inline">•</span>
-            <span className="flex items-center gap-1.5">
-              <MapPin className="w-4 h-4 text-purple-400" />
-              Phayao, Thailand
-            </span>
-          </div>
+                {/* Overlapping Intro Box (Bottom Left) */}
+                <div className="absolute -bottom-6 -left-4 max-w-[280px] bg-purple-500 text-zinc-950 p-4 rounded-xl text-xs font-semibold shadow-xl space-y-1">
+                  <p className="leading-relaxed">
+                    &quot;An adaptable Computer Science student dedicated to building high-performance mobile & web applications.&quot;
+                  </p>
+                </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full sm:w-auto">
-            <a
-              href="#projects"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-medium transition-all duration-200 shadow-lg shadow-purple-600/25 active:scale-95"
-            >
-              ดูผลงานของฉัน
-              <ArrowRight className="w-4 h-4" />
-            </a>
-            <a
-              href="/Resume_JiratP.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#18181b] hover:bg-zinc-800 border border-zinc-800 hover:border-purple-500/40 text-zinc-200 font-medium transition-all duration-200 active:scale-95"
-            >
-              <Download className="w-4 h-4" />
-              เปิด Resume (PDF)
-            </a>
+              </div>
+            </div>
+
+            {/* Right Column: Portfolio Title & Contact Badges */}
+            <div className="lg:col-span-7 space-y-8 pt-6 lg:pt-0">
+              
+              {/* Main Title */}
+              <div className="space-y-3">
+                <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight text-white font-serif uppercase">
+                  PORTFOLIO
+                </h1>
+                <p className="text-purple-400 font-mono text-sm md:text-base flex items-center gap-2">
+                  <span>&gt;</span> Computer Science Student & Developer
+                </p>
+              </div>
+
+              {/* Bio Summary */}
+              <p className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-xl">
+                สวัสดีครับ ผม <strong className="text-white">จิรัฏฐ์ ปานันตา (Jirat Panunta)</strong> นิสิตสาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยพะเยา (GPA 3.68) มุ่งมั่นที่จะเรียนรู้ พัฒนาแอปพลิเคชัน และนำทักษะไปต่อยอดการทำงานจริงร่วมกับทีม
+              </p>
+
+              {/* Contact Links as Pill Badges */}
+              <div className="space-y-2.5 pt-2">
+                
+                {/* GitHub */}
+                <a
+                  href="https://github.com/jirattong"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-3.5 py-2 rounded-lg bg-[#18181b] border border-zinc-800 hover:border-purple-500/50 hover:bg-zinc-800/80 transition-all text-xs font-mono group"
+                >
+                  <span className="px-2 py-0.5 rounded bg-purple-500/20 text-purple-400 font-bold">GH</span>
+                  <span className="text-zinc-300 group-hover:text-white transition-colors">jirattong.github.io</span>
+                </a>
+
+                <br />
+
+                {/* Email */}
+                <a
+                  href="mailto:panuntajirat@gmail.com"
+                  className="inline-flex items-center gap-3 px-3.5 py-2 rounded-lg bg-[#18181b] border border-zinc-800 hover:border-purple-500/50 hover:bg-zinc-800/80 transition-all text-xs font-mono group"
+                >
+                  <span className="px-2 py-0.5 rounded bg-purple-500/20 text-purple-400 font-bold">EM</span>
+                  <span className="text-zinc-300 group-hover:text-white transition-colors">panuntajirat@gmail.com</span>
+                </a>
+
+                <br />
+
+                {/* Phone */}
+                <a
+                  href="tel:0948760595"
+                  className="inline-flex items-center gap-3 px-3.5 py-2 rounded-lg bg-[#18181b] border border-zinc-800 hover:border-purple-500/50 hover:bg-zinc-800/80 transition-all text-xs font-mono group"
+                >
+                  <span className="px-2 py-0.5 rounded bg-purple-500/20 text-purple-400 font-bold">PH</span>
+                  <span className="text-zinc-300 group-hover:text-white transition-colors">094-876-0595</span>
+                </a>
+
+              </div>
+
+            </div>
+
           </div>
 
         </section>
 
         {/* ==================== 2. EDUCATION & EXPERIENCE TIMELINE ==================== */}
-        <section id="education-experience" className="py-16 border-t border-zinc-800/60">
+        <section id="education-experience" className="py-12 border-t border-zinc-800/60">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             
             {/* Left Column: Education */}
@@ -192,7 +234,6 @@ export default function Home() {
                 
                 {/* Timeline Item 1: University */}
                 <div className="relative group">
-                  {/* Timeline Dot */}
                   <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform shadow-[0_0_10px_rgba(168,85,247,0.8)]" />
                   
                   <span className="text-xs font-semibold text-purple-400 tracking-wider">2023 – PRESENT</span>
@@ -208,7 +249,6 @@ export default function Home() {
 
                 {/* Timeline Item 2: High School */}
                 <div className="relative group">
-                  {/* Timeline Dot */}
                   <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500/60 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
                   
                   <span className="text-xs font-semibold text-purple-400/80 tracking-wider">2020 – 2022</span>
@@ -239,7 +279,6 @@ export default function Home() {
                 
                 {/* Timeline Item 1: Makro */}
                 <div className="relative group">
-                  {/* Timeline Dot */}
                   <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform shadow-[0_0_10px_rgba(168,85,247,0.8)]" />
                   
                   <span className="text-xs font-semibold text-purple-400 tracking-wider">MAR 2025 – MAY 2025</span>
@@ -254,7 +293,6 @@ export default function Home() {
 
                 {/* Timeline Item 2: Rally Project */}
                 <div className="relative group">
-                  {/* Timeline Dot */}
                   <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500/60 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
                   
                   <span className="text-xs font-semibold text-purple-400/80 tracking-wider">2024 – 2025</span>
@@ -272,7 +310,7 @@ export default function Home() {
         </section>
 
         {/* ==================== 3. SKILLS SECTION ==================== */}
-        <section id="skills" className="py-16 space-y-10 border-t border-zinc-800/60">
+        <section id="skills" className="py-12 space-y-10 border-t border-zinc-800/60">
           
           <div className="text-center space-y-2">
             <h2 className="text-3xl font-bold text-white flex items-center justify-center gap-2">
@@ -310,7 +348,7 @@ export default function Home() {
         </section>
 
         {/* ==================== 4. PROJECTS SECTION ==================== */}
-        <section id="projects" className="py-16 space-y-10 border-t border-zinc-800/60">
+        <section id="projects" className="py-12 space-y-10 border-t border-zinc-800/60">
           
           <div className="text-center space-y-2">
             <h2 className="text-3xl font-bold text-white flex items-center justify-center gap-2">
@@ -329,7 +367,6 @@ export default function Home() {
                 className="p-6 rounded-2xl bg-[#18181b]/80 border border-zinc-800 flex flex-col justify-between space-y-6 hover:border-purple-500/50 hover:bg-[#18181b] transition-all duration-300 group"
               >
                 <div className="space-y-3">
-                  {/* Status Tag */}
                   <div className="flex items-center justify-between">
                     {project.isCompleted ? (
                       <span className="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20 flex items-center gap-1.5">
@@ -355,7 +392,6 @@ export default function Home() {
                     {project.description}
                   </p>
 
-                  {/* Highlights List */}
                   <ul className="text-xs text-zinc-400 space-y-1.5 pt-2 list-disc list-inside">
                     {project.highlights.map((item, hIdx) => (
                       <li key={hIdx}>{item}</li>
@@ -364,7 +400,6 @@ export default function Home() {
                 </div>
 
                 <div className="space-y-4 pt-2">
-                  {/* Tech Tags */}
                   <div className="flex flex-wrap gap-1.5">
                     {project.techStack.map((tech, tIdx) => (
                       <span
@@ -376,7 +411,6 @@ export default function Home() {
                     ))}
                   </div>
 
-                  {/* Project Links */}
                   <div className="flex items-center gap-4 pt-2 border-t border-zinc-800 text-sm">
                     {project.githubUrl && (
                       <a
