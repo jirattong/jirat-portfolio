@@ -10,11 +10,14 @@ import {
   ExternalLink, 
   Briefcase,
   Image as ImageIcon,
-  X
+  Video as VideoIcon,
+  X,
+  Sparkles
 } from 'lucide-react';
 
 export default function Home() {
   const [activeModalImages, setActiveModalImages] = useState<string[] | null>(null);
+  const [activeModalVideos, setActiveModalVideos] = useState<{ title: string; url: string }[] | null>(null);
   const [modalTitle, setModalTitle] = useState<string>('');
 
   // 1. หมวดหมู่ทักษะความสามารถ (Skills)
@@ -29,7 +32,7 @@ export default function Home() {
     },
     {
       title: 'Technical Tools & Platforms',
-      skills: ['Git & GitHub', 'VS Code', 'Firebase', 'Vercel', 'ROS TurtleSim'],
+      skills: ['Git & GitHub', 'VS Code', 'Firebase', 'Vercel'],
     },
   ];
 
@@ -38,6 +41,7 @@ export default function Home() {
     {
       title: 'Rally Application - Real-Time Pose Analysis',
       subtitle: 'Mobile Application for Remote Device Control (2024 - 2025)',
+      category: 'Academic Capstone',
       status: 'เสร็จสมบูรณ์ (โปรเจกต์จบ)',
       isCompleted: true,
       description: 'แอปพลิเคชันมือถือแบบ Cross-platform สำหรับควบคุมอุปกรณ์ด้วยท่าทาง (Gesture Control) ประมวลผลภาพจากกล้องแบบ Real-time ร่วมกับ Machine Learning',
@@ -48,26 +52,61 @@ export default function Home() {
         'จำลองการสั่งการหุ่นยนต์ใน 2D Environment ด้วย ROS TurtleSim Simulation',
       ],
       techStack: ['Flutter', 'Dart', 'Google ML Kit', 'KNN Algorithm', 'Firebase', 'ROS'],
-      githubUrl: 'https://github.com/jirattong',
+      githubUrl: 'https://github.com/jirattong/rally-ui-only',
       demoUrl: '',
-      screenshots: ['/rally-1.png', '/rally-2.png'], 
+      videos: [
+        {
+          title: '🎬 คลิปตัวอย่างสาธิตตอนทดสอบ (Pose Analysis Demo)',
+          url: '/rally-demo.mp4', 
+        },
+        {
+          title: '🤖 คลิปตัวอย่างการทดลองใช้กับ TurtleSim (ROS Simulation)',
+          url: '/turtlesim-demo.mp4', 
+        },
+      ],
+      screenshots: [],
     },
     {
       title: 'RouteAlert',
       subtitle: 'Real-Time Route & Transit Notification System',
+      category: 'Academic / Team Project',
       status: 'กำลังพัฒนา (In Progress)',
       isCompleted: false,
-      description: 'แอปพลิเคชันแจ้งเตือนเส้นทางและการเดินทางแบบเรียลไทม์ ปัจจุบันกำลังอยู่ในช่วงออกแบบสถาปัตยกรรมระบบและพัฒนา UI/UX',
+      description: 'การพัฒนาแพลตฟอร์มสารสนเทศสำหรับติดตามสถานะและตำแหน่ง แจ้งเตือนเชิงพื้นที่ และประสานเส้นทางรถพยาบาลฉุกเฉินเพื่อสนับสนุนการส่งต่อผู้ป่วยฉุกเฉินในประเทศไทย',
       highlights: [
         'ออกแบบ UI/UX บน Figma ให้ใช้งานง่ายและเข้าถึงสะดวก',
-        'พัฒนาระบบด้วย Next.js, TypeScript และ Tailwind CSS',
+        'พัฒนาระบบด้วย flutter และ เทคโนโลยี Geofencing',
       ],
-      techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Figma'],
-      githubUrl: 'https://github.com/jirattong',
+      techStack: ['Flutter', 'Dart', 'Figma'],
+      githubUrl: 'https://github.com/jirattong/route-alert-app',
       demoUrl: '',
+      videos: [],
+      screenshots: [],
+    },
+    {
+      title: 'Moto Maintenance — Smart Motorcycle Care & AI Advisor',
+      subtitle: 'Personal Side Project',
+      category: 'Personal Project',
+      status: 'Side Project',
+      isCompleted: true,
+      description: 'แอปพลิเคชันส่วนตัวสำหรับบันทึกประวัติการบำรุงรักษารถมอเตอร์ไซค์ บูรณาการ LLM จาก Google Gemini API (Free Key) คอยวิเคราะห์อาการเสีย ให้คำแนะนำเทคนิค และตอบข้อสงสัยแบบเรียลไทม์',
+      highlights: [
+        'พัฒนาระบบบันทึกประวัติการเปลี่ยนถ่ายน้ำมันเครื่อง อะไหล่ และการเช็กระยะสภาพรถส่วนตัว',
+        'เชื่อมต่อ LLM ผ่าน Google Gemini API (Free Tier Key) วิเคราะห์อาการประมวลผลคำตอบเกี่ยวกับมอเตอร์ไซค์',
+        'ช่วยบริหารจัดการประวัติการซ่อมบำรุง ค้นหาข้อมูล และรับคำแนะนำด้านเทคนิครถมอเตอร์ไซค์อย่างมีประสิทธิภาพ',
+      ],
+      techStack: ['TypeScript', 'Google Gemini API', 'Tailwind CSS', 'GitHub'],
+      githubUrl: 'https://github.com/jirattong/moto-maintenance',
+      demoUrl: 'https://moto-maintenance-nine.vercel.app/',
+      videos: [],
       screenshots: [],
     },
   ];
+
+  const closeModal = () => {
+    setActiveModalImages(null);
+    setActiveModalVideos(null);
+  };
 
   return (
     <div className="min-h-screen bg-[#0e0e10] text-zinc-100 relative font-sans scroll-smooth">
@@ -83,7 +122,6 @@ export default function Home() {
           
           <a href="#" className="text-base md:text-lg font-extrabold tracking-wider text-white hover:text-amber-400 transition-colors uppercase flex items-center gap-2">
             <span>JIRAT PANUNTA</span>
-            <span className="h-1.5 w-1.5 rounded-full bg-amber-400"></span>
           </a>
 
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-purple-200/80">
@@ -147,7 +185,7 @@ export default function Home() {
                 {/* Overlapping Intro Box */}
                 <div className="absolute -bottom-6 -left-4 max-w-[280px] bg-amber-400 text-zinc-950 p-4 rounded-xl text-xs font-bold shadow-xl space-y-1">
                   <p className="leading-relaxed">
-                    &quot;An adaptable Computer Science student dedicated to building high-performance mobile & web applications.&quot;
+                    &quot;Computer Science student focused on crafting the best possible solutions through performance optimization and continuous learning.&quot;
                   </p>
                 </div>
 
@@ -162,12 +200,12 @@ export default function Home() {
                   PORTFOLIO
                 </h1>
                 <p className="text-amber-400 font-mono text-sm md:text-base flex items-center gap-2">
-                  <span>&gt;</span> Computer Science Student & Developer
+                  <span>&gt;</span> Computer Science Student Intern
                 </p>
               </div>
 
               <p className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-xl">
-                สวัสดีครับ ผม <strong className="text-white">จิรัฏฐ์ ปานันตา (Jirat Panunta)</strong> นิสิตสาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยพะเยา (GPA 3.68)[cite: 1] มุ่งมั่นที่จะเรียนรู้ พัฒนาแอปพลิเคชัน และนำทักษะไปต่อยอดการทำงานจริงร่วมกับทีม[cite: 1]
+                สวัสดีครับ ผมจิรัฏฐ์ ปานันตา นิสิตสาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยพะเยา พร้อมมุ่งมั่นที่จะเรียนรู้เทคโนโลยีใหม่ๆ และนำทักษะที่ได้ไปต่อยอดในการทำงานจริงร่วมกับทีม
               </p>
 
               {/* Contact Links as Badges */}
@@ -220,7 +258,6 @@ export default function Home() {
                   <GraduationCap className="w-8 h-8 text-purple-400" />
                   Education
                 </h2>
-                <div className="w-12 h-1 bg-amber-400 rounded-full" />
               </div>
 
               <div className="relative border-l-2 border-purple-500/30 pl-6 space-y-10 ml-2">
@@ -228,7 +265,6 @@ export default function Home() {
                 <div className="relative group">
                   <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
                   
-                  {/* YELLOW HIGHLIGHT ON TIMEFRAME ONLY */}
                   <span className="text-xs font-semibold text-amber-400 tracking-wider">2023 – PRESENT</span>
                   
                   <h3 className="text-lg font-bold text-white pt-1">Bachelor of Science (Computer Science)</h3>
@@ -245,7 +281,6 @@ export default function Home() {
                 <div className="relative group">
                   <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500/60 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
                   
-                  {/* YELLOW HIGHLIGHT ON TIMEFRAME ONLY */}
                   <span className="text-xs font-semibold text-amber-400/80 tracking-wider">2020 – 2022</span>
                   
                   <h3 className="text-lg font-bold text-white pt-1">High School Diploma in Arts-Language (English)</h3>
@@ -266,7 +301,6 @@ export default function Home() {
                   <Briefcase className="w-8 h-8 text-purple-400" />
                   Experience
                 </h2>
-                <div className="w-12 h-1 bg-amber-400 rounded-full" />
               </div>
 
               <div className="relative border-l-2 border-purple-500/30 pl-6 space-y-10 ml-2">
@@ -274,7 +308,6 @@ export default function Home() {
                 <div className="relative group">
                   <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
                   
-                  {/* YELLOW HIGHLIGHT ON TIMEFRAME ONLY */}
                   <span className="text-xs font-semibold text-amber-400 tracking-wider">MAR 2025 – MAY 2025</span>
                   
                   <h3 className="text-lg font-bold text-white pt-1">OCS (Outsourced Customer Sales)</h3>
@@ -290,7 +323,6 @@ export default function Home() {
                 <div className="relative group">
                   <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500/60 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
                   
-                  {/* YELLOW HIGHLIGHT ON TIMEFRAME ONLY */}
                   <span className="text-xs font-semibold text-amber-400/80 tracking-wider">2024 – 2025</span>
                   
                   <h3 className="text-lg font-bold text-white pt-1">Lead Developer — Rally App</h3>
@@ -349,107 +381,128 @@ export default function Home() {
           <div className="text-center space-y-2">
             <h2 className="text-3xl font-bold text-white flex items-center justify-center gap-2">
               <FolderGit2 className="w-7 h-7 text-purple-400" />
-              ผลงานที่โดดเด่น (Projects)
+              Projects & Personal Labs
             </h2>
             <p className="text-zinc-400 text-sm md:text-base">
-              โปรเจกต์ที่พัฒนาและมีส่วนร่วมในการออกแบบ
+              ผลงานการพัฒนาแอปพลิเคชันและโปรเจกต์ทดลองส่วนตัว
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects.map((project, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl bg-[#18181b]/80 border border-zinc-800 flex flex-col justify-between space-y-6 hover:border-amber-400/40 hover:bg-[#18181b] transition-all duration-300 group"
-              >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    {project.isCompleted ? (
-                      <span className="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20 flex items-center gap-1.5">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                        {project.status}
+            {projects.map((project, idx) => {
+              const hasMedia = (project.screenshots && project.screenshots.length > 0) || (project.videos && project.videos.length > 0);
+
+              return (
+                <div
+                  key={idx}
+                  className="p-6 rounded-2xl bg-[#18181b]/80 border border-zinc-800 flex flex-col justify-between space-y-6 hover:border-amber-400/40 hover:bg-[#18181b] transition-all duration-300 group"
+                >
+                  <div className="space-y-3">
+                    
+                    {/* Category Tag & Completion Status */}
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="text-[11px] font-bold text-amber-300 bg-amber-400/10 px-2.5 py-0.5 rounded-full border border-amber-400/20 flex items-center gap-1">
+                        <Sparkles className="w-3 h-3 text-amber-400" />
+                        {project.category}
                       </span>
-                    ) : (
-                      <span className="text-xs font-medium text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md border border-amber-500/20 flex items-center gap-1.5">
-                        <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse"></span>
-                        {project.status}
-                      </span>
-                    )}
+
+                      {project.isCompleted ? (
+                        <span className="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20 flex items-center gap-1.5">
+                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                          {project.status}
+                        </span>
+                      ) : (
+                        <span className="text-xs font-medium text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md border border-amber-500/20 flex items-center gap-1.5">
+                          <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                          {project.status}
+                        </span>
+                      )}
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-xs text-purple-400/80 pt-0.5">{project.subtitle}</p>
+                    </div>
+
+                    <p className="text-zinc-400 text-sm leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    <ul className="text-xs text-zinc-400 space-y-1.5 pt-2 list-disc list-inside">
+                      {project.highlights.map((item, hIdx) => (
+                        <li key={hIdx}>{item}</li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <div>
-                    <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-xs text-purple-400/80 pt-0.5">{project.subtitle}</p>
+                  <div className="space-y-4 pt-2">
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.techStack.map((tech, tIdx) => (
+                        <span
+                          key={tIdx}
+                          className="text-xs px-2.5 py-1 rounded-md bg-zinc-900 text-zinc-300 border border-zinc-800"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-zinc-800 text-sm">
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors"
+                        >
+                          <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                          </svg>
+                          Source Code
+                        </a>
+                      )}
+
+                      <div className="flex items-center gap-3 ml-auto">
+                        {/* ปุ่มเปิด Modal แสดงคลิปสาธิต (สไตล์ปุ่มเหมือนกัน) */}
+                        {hasMedia && (
+                          <button
+                            onClick={() => {
+                              setActiveModalImages(project.screenshots || []);
+                              setActiveModalVideos(project.videos || []);
+                              setModalTitle(project.title);
+                            }}
+                            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-400/10 hover:bg-amber-400/20 text-amber-400 hover:text-amber-300 border border-amber-400/30 text-xs font-medium transition-all cursor-pointer"
+                          >
+                            {project.videos && project.videos.length > 0 ? (
+                              <VideoIcon className="w-3.5 h-3.5" />
+                            ) : (
+                              <ImageIcon className="w-3.5 h-3.5" />
+                            )}
+                            <span>ดูตัวอย่างแอป</span>
+                          </button>
+                        )}
+
+                        {/* ปุ่ม Live Demo สำหรับเปิดทดลองใช้เว็บจริง (สไตล์ปุ่มเหมือนกัน) */}
+                        {project.demoUrl && (
+                          <a
+                            href={project.demoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-400/10 hover:bg-amber-400/20 text-amber-400 hover:text-amber-300 border border-amber-400/30 text-xs font-medium transition-all"
+                          >
+                            <span>ทดลองใช้แอป</span>
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </a>
+                        )}
+                      </div>
+
+                    </div>
                   </div>
-
-                  <p className="text-zinc-400 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  <ul className="text-xs text-zinc-400 space-y-1.5 pt-2 list-disc list-inside">
-                    {project.highlights.map((item, hIdx) => (
-                      <li key={hIdx}>{item}</li>
-                    ))}
-                  </ul>
                 </div>
-
-                <div className="space-y-4 pt-2">
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.techStack.map((tech, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="text-xs px-2.5 py-1 rounded-md bg-zinc-900 text-zinc-300 border border-zinc-800"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-zinc-800 text-sm">
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors"
-                      >
-                        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                        </svg>
-                        Source Code
-                      </a>
-                    )}
-
-                    {project.screenshots && project.screenshots.length > 0 && (
-                      <button
-                        onClick={() => {
-                          setActiveModalImages(project.screenshots);
-                          setModalTitle(project.title);
-                        }}
-                        className="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 font-medium transition-colors ml-auto cursor-pointer"
-                      >
-                        <ImageIcon className="w-4 h-4" />
-                        ดูตัวอย่างแอป (Preview)
-                      </button>
-                    )}
-
-                    {project.demoUrl && (
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 font-medium transition-colors ml-auto"
-                      >
-                        Live Demo
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
         </section>
@@ -462,47 +515,93 @@ export default function Home() {
 
       </main>
 
-      {/* ==================== SCREENSHOTS POPUP MODAL ==================== */}
-      {activeModalImages && (
+      {/* ==================== MEDIA POPUP MODAL ==================== */}
+      {(activeModalImages || activeModalVideos) && (
         <div 
           className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 animate-fadeIn"
-          onClick={() => setActiveModalImages(null)}
+          onClick={closeModal}
         >
           <div 
             className="bg-[#18181b] border border-zinc-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl flex flex-col relative"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Modal Header */}
             <div className="p-4 border-b border-zinc-800 flex items-center justify-between">
               <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <ImageIcon className="w-4 h-4 text-amber-400" />
-                {modalTitle} — ตัวอย่างหน้าตาแอป
+                {activeModalVideos && activeModalVideos.length > 0 ? (
+                  <VideoIcon className="w-4 h-4 text-amber-400" />
+                ) : (
+                  <ImageIcon className="w-4 h-4 text-amber-400" />
+                )}
+                {modalTitle} — ตัวอย่างผลงาน
               </h3>
               <button
-                onClick={() => setActiveModalImages(null)}
-                className="p-1 rounded-lg hover:bg-zinc-800 text-zinc-400 hover:text-white transition-colors"
+                onClick={closeModal}
+                className="p-1 rounded-lg hover:bg-zinc-800 text-zinc-400 hover:text-white transition-colors cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="p-6 overflow-y-auto space-y-6 max-h-[75vh]">
-              {activeModalImages.map((src, imgIdx) => (
-                <div key={imgIdx} className="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 flex items-center justify-center">
-                  {/* eslint-disable-next-html-link */}
-                  <img
-                    src={src}
-                    alt={`Screenshot ${imgIdx + 1}`}
-                    className="max-h-[600px] w-auto object-contain"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                    }}
-                  />
-                  <div className="p-8 text-center text-zinc-500 text-xs space-y-1">
-                    <p className="font-semibold text-zinc-400">📷 แสดงภาพตัวอย่าง: {src}</p>
-                    <p>กรุณาวางไฟล์รูปภาพของคุณไว้ที่โฟลเดอร์ <code className="text-amber-400">public{src}</code></p>
+            {/* Modal Body: Scrollable Media Gallery */}
+            <div className="p-6 overflow-y-auto space-y-8 max-h-[75vh]">
+              
+              {/* MULTIPLE VIDEOS SECTION */}
+              {activeModalVideos && activeModalVideos.map((vid, vIdx) => (
+                <div key={vIdx} className="space-y-2">
+                  <h4 className="text-sm font-semibold text-amber-400 flex items-center gap-2">
+                    <VideoIcon className="w-4 h-4" />
+                    {vid.title}
+                  </h4>
+                  <div className="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 flex items-center justify-center">
+                    {vid.url.includes('youtube.com') || vid.url.includes('youtu.be') ? (
+                      <iframe
+                        src={vid.url}
+                        title={vid.title}
+                        className="w-full aspect-video rounded-xl"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <video 
+                        controls 
+                        className="w-full max-h-[450px] rounded-xl object-contain bg-black"
+                      >
+                        <source src={vid.url} type="video/mp4" />
+                        เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอนี้
+                      </video>
+                    )}
                   </div>
                 </div>
               ))}
+
+              {/* IMAGES SECTION */}
+              {activeModalImages && activeModalImages.length > 0 && (
+                <div className="space-y-4 pt-2 border-t border-zinc-800/80">
+                  <h4 className="text-sm font-semibold text-zinc-300 flex items-center gap-2">
+                    <ImageIcon className="w-4 h-4 text-purple-400" />
+                    รูปภาพหน้าตาแอป (Screenshots)
+                  </h4>
+                  {activeModalImages.map((src, imgIdx) => (
+                    <div key={imgIdx} className="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 flex items-center justify-center">
+                      {/* eslint-disable-next-html-link */}
+                      <img
+                        src={src}
+                        alt={`Screenshot ${imgIdx + 1}`}
+                        className="max-h-[600px] w-auto object-contain"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                      <div className="p-8 text-center text-zinc-500 text-xs space-y-1">
+                        <p className="font-semibold text-zinc-400">📷 แสดงภาพตัวอย่าง: {src}</p>
+                        <p>กรุณาวางไฟล์รูปภาพของคุณไว้ที่โฟลเดอร์ <code className="text-amber-400">public{src}</code></p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
             </div>
           </div>
         </div>
