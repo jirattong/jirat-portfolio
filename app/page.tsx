@@ -64,7 +64,7 @@ export default function Home() {
     { label: 'Anime', icon: '🍿' },
   ];
 
-  // 2. รายการผลงาน (Projects) พร้อมเพิ่มรูป Cover Image
+  // 2. รายการผลงาน (Projects) พร้อมรูป Cover Image
   const projects = [
     {
       title: 'Rally Application — Real-Time Pose Analysis',
@@ -76,8 +76,8 @@ export default function Home() {
       description: 'แอปพลิเคชันมือถือแบบ Cross-platform สำหรับควบคุมอุปกรณ์ด้วยท่าทาง (Gesture Control) ประมวลผลภาพจากกล้องแบบ Real-time ร่วมกับ Machine Learning',
       highlights: [
         'ใช้ Google ML Kit Pose Detection API ตรวจจับและวิเคราะห์พิกัดโครงสร้างร่างกายแบบ Real-time',
-        'ประยุกต์ใช้ KNN Algorithm และ 3-State Machine รองรับการจดจำและจำแนก ท่าทางกำหนดเองแบบส่วนบุคคล (User-Defined Gestures) ได้ทันที',
-        'ใช้ Firebase Realtime Database ทำหน้าที่เป็น IoT Bridge ซิงโครไนซ์คำสั่งแบบ Real-time และความหน่วงต่ำ',
+        'ประยุกต์ใช้ K-Nearest Neighbors (KNN) และ 3-State Machine ตรวจจับและจำแนกท่าทางของผู้ใช้',
+        'เชื่อมต่อ Firebase Realtime Database ส่งคำสั่งความหน่วงต่ำ (Low-latency)',
         'จำลองการสั่งการหุ่นยนต์ใน 2D Environment ด้วย ROS TurtleSim Simulation',
       ],
       techStack: ['Flutter', 'Dart', 'Google ML Kit', 'KNN Algorithm', 'Firebase', 'ROS'],
@@ -104,12 +104,10 @@ export default function Home() {
       isCompleted: false,
       description: 'การพัฒนาแพลตฟอร์มสารสนเทศสำหรับติดตามสถานะและตำแหน่ง แจ้งเตือนเชิงพื้นที่ และประสานเส้นทางรถพยาบาลฉุกเฉินเพื่อสนับสนุนการส่งต่อผู้ป่วยฉุกเฉินในประเทศไทย',
       highlights: [
-        'ระบบตรวจจับพิกัดด้วย Geofencing แจ้งเตือนผู้ขับขี่บนท้องถนนล่วงหน้าด้วยป๊อปอัปกลางจอและสัญญาณเสียง พร้อมแสดงระยะทางถอยหลังแบบ Real-time ช่วยให้ผู้ใช้รถใช้ถนนเบี่ยงหลบทางได้อย่างทันท่วงที',
-        'เจ้าหน้าที่บนรถพยาบาลสามารถเลือกเปิด/ปิดการส่งสัญญาณเตือนภัย (Notification Alert) เฉพาะยามมีเคสเร่งด่วน พร้อมโหมดทางหลวง (Highway Mode) และ GPS ความละเอียดสูง เพื่อขยายรัศมีการยิงสัญญาณเตือนตามสภาพการจราจร',
-        'รองรับการอัปเดตสถานะการปฏิบัติงานแบบ 5 ขั้นตอน (ตั้งแต่รับเคส ถึงจุดเกิดเหตุ รับผู้ป่วย นำส่ง รพ.) พร้อมระบบคูลดาวน์นับถอยหลังป้องกันการกดเปลี่ยนสถานะพลาดขณะรถวิ่ง',
-        'เจ้าหน้าที่กู้ชีพสามารถถ่ายและอัปเดตรูปภาพเหตุการณ์หน้างานส่งตรงไปยังห้องฉุกเฉิน (ER) ของโรงพยาบาลปลายทาง เพื่อให้ทีมแพทย์และพยาบาลเตรียมอุปกรณ์และเตียงรอรับผู้ป่วยได้ทันที',
+        'ออกแบบ UI/UX บน Figma ให้ใช้งานง่ายและเข้าถึงสะดวก',
+        'พัฒนาระบบด้วย flutter และ เทคโนโลยี Geofencing',
       ],
-      techStack: ['Flutter', 'Dart', 'Figma', 'OpenStreetMap', 'Geofencing & Distance Engine'],
+      techStack: ['Flutter', 'Dart', 'Figma'],
       githubUrl: 'https://github.com/jirattong/route-alert-app',
       demoUrl: '',
       videos: [],
@@ -122,13 +120,13 @@ export default function Home() {
       category: 'Personal Project',
       status: 'Side Project',
       isCompleted: true,
-      description: 'แอปพลิเคชันส่วนตัวสำหรับบันทึกประวัติการบำรุงรักษารถมอเตอร์ไซค์ บูรณาการ Chatbot AI จาก Google Gemini API (Free Key) คอยวิเคราะห์อาการเสีย ให้คำแนะนำเทคนิค และตอบข้อสงสัยแบบเรียลไทม์',
+      description: 'แอปพลิเคชันส่วนตัวสำหรับบันทึกประวัติการบำรุงรักษารถมอเตอร์ไซค์ บูรณาการ LLM จาก Google Gemini API (Free Key) คอยวิเคราะห์อาการเสีย ให้คำแนะนำเทคนิค และตอบข้อสงสัยแบบเรียลไทม์',
       highlights: [
         'พัฒนาระบบบันทึกประวัติการเปลี่ยนถ่ายน้ำมันเครื่อง อะไหล่ และการเช็กระยะสภาพรถส่วนตัว',
-        'เชื่อมต่อ Chatbot AI ผ่าน Google Gemini API (Free Tier Key) วิเคราะห์อาการประมวลผลคำตอบเกี่ยวกับมอเตอร์ไซค์',
+        'เชื่อมต่อ LLM ผ่าน Google Gemini API (Free Tier Key) วิเคราะห์อาการประมวลผลคำตอบเกี่ยวกับมอเตอร์ไซค์',
         'ช่วยบริหารจัดการประวัติการซ่อมบำรุง ค้นหาข้อมูล และรับคำแนะนำด้านเทคนิครถมอเตอร์ไซค์อย่างมีประสิทธิภาพ',
       ],
-      techStack: ['TypeScript', 'Google Gemini API', 'Tailwind CSS', 'Generative AI Integrated System'],
+      techStack: ['TypeScript', 'Google Gemini API', 'Tailwind CSS', 'GitHub'],
       githubUrl: 'https://github.com/jirattong/moto-maintenance',
       demoUrl: 'https://moto-maintenance-nine.vercel.app/',
       videos: [],
@@ -137,18 +135,18 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0e0e10] text-zinc-100 relative font-sans scroll-smooth">
+    <div className="min-h-screen bg-[#0e0e10] text-zinc-100 relative font-sans scroll-smooth overflow-x-hidden w-full max-w-full">
       
       {/* Background Decorative Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/15 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute top-1/3 right-10 w-[300px] h-[300px] bg-amber-400/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute top-2/3 right-1/4 w-[450px] h-[450px] bg-violet-600/10 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-purple-600/15 rounded-full blur-[100px] sm:blur-[130px] pointer-events-none" />
+      <div className="absolute top-1/3 right-0 w-[200px] sm:w-[300px] h-[200px] sm:h-[300px] bg-amber-400/10 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none" />
+      <div className="absolute top-2/3 right-1/4 w-[250px] sm:w-[450px] h-[250px] sm:h-[450px] bg-violet-600/10 rounded-full blur-[100px] sm:blur-[130px] pointer-events-none" />
 
       {/* ==================== NAVBAR / HEADER ==================== */}
       <header className="fixed top-0 left-0 right-0 z-40 bg-purple-950/80 backdrop-blur-md border-b border-purple-800/40 shadow-lg shadow-purple-950/30 transition-all">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-2">
           
-          <a href="#" className="text-base md:text-lg font-extrabold tracking-wider text-white hover:text-amber-400 transition-colors uppercase flex items-center gap-2">
+          <a href="#" className="text-sm sm:text-base md:text-lg font-extrabold tracking-wider text-white hover:text-amber-400 transition-colors uppercase flex items-center gap-2 truncate">
             <span>JIRAT PANUNTA</span>
           </a>
 
@@ -164,9 +162,9 @@ export default function Home() {
             href="/Resume_JiratP.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-zinc-950 text-xs font-bold transition-all shadow-lg shadow-amber-400/20 active:scale-95"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-zinc-950 text-[11px] sm:text-xs font-bold transition-all shadow-lg shadow-amber-400/20 active:scale-95 shrink-0"
           >
-            <Download className="w-4 h-4 stroke-[2.5]" />
+            <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]" />
             <span>Resume PDF</span>
           </a>
 
@@ -174,27 +172,28 @@ export default function Home() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-6 pt-20 pb-12 relative space-y-24">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 pt-20 pb-12 relative space-y-16 sm:space-y-24">
 
         {/* ==================== 1. EDITORIAL HERO SECTION ==================== */}
-        <section id="about" className="relative min-h-[80vh] flex items-center justify-center py-8 overflow-hidden scroll-mt-24">
+        <section id="about" className="relative min-h-[75vh] sm:min-h-[80vh] flex items-center justify-center py-6 sm:py-8 overflow-hidden scroll-mt-24">
           
-          <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none opacity-5 leading-none font-extrabold tracking-widest text-[11vw] uppercase text-white space-y-2">
+          {/* ซ่อนคำว่า PORTFOLIO พื้นหลังในมือถือ เพื่อป้องกันการดันขอบขวาบวมล้น */}
+          <div className="absolute inset-0 hidden lg:flex flex-col justify-center items-center pointer-events-none select-none opacity-5 leading-none font-extrabold tracking-widest text-[11vw] uppercase text-white space-y-2">
             <div>PORTFOLIO</div>
             <div>PORTFOLIO</div>
             <div>PORTFOLIO</div>
           </div>
 
-          <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center z-10">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center z-10">
             
             {/* Left Column: Photo Card */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-sm">
+            <div className="lg:col-span-5 flex flex-col items-center justify-center">
+              <div className="relative w-full max-w-[280px] sm:max-w-sm">
                 
                 {/* Yellow Outer Border */}
                 <div className="absolute -inset-2 rounded-2xl border-2 border-amber-400/80 pointer-events-none" />
 
-                <div className="relative w-full h-[420px] rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl">
+                <div className="relative w-full h-[340px] sm:h-[420px] rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl">
                   {/* eslint-disable-next-html-link */}
                   <img
                     src="/profile.png"
@@ -210,8 +209,8 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Overlapping Intro Box */}
-                <div className="absolute -bottom-6 -left-4 max-w-[280px] bg-amber-400 text-zinc-950 p-4 rounded-xl text-xs font-bold shadow-xl space-y-1">
+                {/* Overlapping Intro Box - บนมือถือให้อยู่ใต้รูปไม่เกยทับข้อความ / บนคอมพ์ลอยทับมุมซ้ายล่าง */}
+                <div className="relative mt-4 lg:mt-0 lg:absolute lg:-bottom-6 lg:-left-4 max-w-full lg:max-w-[280px] bg-amber-400 text-zinc-950 p-3.5 sm:p-4 rounded-xl text-xs font-bold shadow-xl space-y-1 z-20">
                   <p className="leading-relaxed">
                     &quot;Computer Science student focused on crafting the best possible solutions through performance optimization and continuous learning.&quot;
                   </p>
@@ -221,51 +220,47 @@ export default function Home() {
             </div>
 
             {/* Right Column: Title & Badges */}
-            <div className="lg:col-span-7 space-y-8 pt-6 lg:pt-0">
+            <div className="lg:col-span-7 space-y-6 lg:space-y-8 pt-2 lg:pt-0">
               
-              <div className="space-y-3">
-                <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight text-white font-serif uppercase">
+              <div className="space-y-2 sm:space-y-3">
+                <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white font-serif uppercase">
                   PORTFOLIO
                 </h1>
-                <p className="text-amber-400 font-mono text-sm md:text-base flex items-center gap-2">
+                <p className="text-amber-400 font-mono text-xs sm:text-sm md:text-base flex items-center gap-2">
                   <span>&gt;</span> Computer Science Student Intern
                 </p>
               </div>
 
-              <p className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-xl">
+              <p className="text-zinc-400 text-xs sm:text-sm md:text-base leading-relaxed max-w-xl">
                 สวัสดีครับ ผม นายจิรัฏฐ์ ปานันตา นิสิตสาขาวิทยาการคอมพิวเตอร์ ปี 4 มหาวิทยาลัยพะเยา พร้อมมุ่งมั่นที่จะเรียนรู้เทคโนโลยีใหม่ๆ และนำทักษะที่ได้ไปต่อยอดในการทำงานจริงร่วมกับทีมครับ
               </p>
 
-              {/* Contact Links as Badges */}
-              <div className="space-y-2.5 pt-2">
+              {/* Contact Links as Badges (เรียงตัวยืดหยุ่นไม่ดันขอบล้น) */}
+              <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 pt-2">
                 <a
                   href="https://github.com/jirattong"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-3.5 py-2 rounded-lg bg-[#18181b] border border-zinc-800 hover:border-amber-400/50 hover:bg-zinc-800/80 transition-all text-xs font-mono group"
+                  className="inline-flex items-center gap-3 px-3.5 py-2 rounded-lg bg-[#18181b] border border-zinc-800 hover:border-amber-400/50 hover:bg-zinc-800/80 transition-all text-xs font-mono group w-full sm:w-fit"
                 >
-                  <span className="px-2 py-0.5 rounded bg-amber-400/10 text-amber-400 font-bold border border-amber-400/20">GH</span>
-                  <span className="text-zinc-300 group-hover:text-white transition-colors">jirattong.github.io</span>
+                  <span className="px-2 py-0.5 rounded bg-amber-400/10 text-amber-400 font-bold border border-amber-400/20 shrink-0">GH</span>
+                  <span className="text-zinc-300 group-hover:text-white transition-colors truncate">jirattong.github.io</span>
                 </a>
-
-                <br />
 
                 <a
                   href="mailto:panuntajirat@gmail.com"
-                  className="inline-flex items-center gap-3 px-3.5 py-2 rounded-lg bg-[#18181b] border border-zinc-800 hover:border-amber-400/50 hover:bg-zinc-800/80 transition-all text-xs font-mono group"
+                  className="inline-flex items-center gap-3 px-3.5 py-2 rounded-lg bg-[#18181b] border border-zinc-800 hover:border-amber-400/50 hover:bg-zinc-800/80 transition-all text-xs font-mono group w-full sm:w-fit"
                 >
-                  <span className="px-2 py-0.5 rounded bg-amber-400/10 text-amber-400 font-bold border border-amber-400/20">EM</span>
-                  <span className="text-zinc-300 group-hover:text-white transition-colors">panuntajirat@gmail.com</span>
+                  <span className="px-2 py-0.5 rounded bg-amber-400/10 text-amber-400 font-bold border border-amber-400/20 shrink-0">EM</span>
+                  <span className="text-zinc-300 group-hover:text-white transition-colors truncate">panuntajirat@gmail.com</span>
                 </a>
-
-                <br />
 
                 <a
                   href="tel:0948760595"
-                  className="inline-flex items-center gap-3 px-3.5 py-2 rounded-lg bg-[#18181b] border border-zinc-800 hover:border-amber-400/50 hover:bg-zinc-800/80 transition-all text-xs font-mono group"
+                  className="inline-flex items-center gap-3 px-3.5 py-2 rounded-lg bg-[#18181b] border border-zinc-800 hover:border-amber-400/50 hover:bg-zinc-800/80 transition-all text-xs font-mono group w-full sm:w-fit"
                 >
-                  <span className="px-2 py-0.5 rounded bg-amber-400/10 text-amber-400 font-bold border border-amber-400/20">PH</span>
-                  <span className="text-zinc-300 group-hover:text-white transition-colors">094-876-0595</span>
+                  <span className="px-2 py-0.5 rounded bg-amber-400/10 text-amber-400 font-bold border border-amber-400/20 shrink-0">PH</span>
+                  <span className="text-zinc-300 group-hover:text-white transition-colors truncate">094-876-0595</span>
                 </a>
               </div>
 
@@ -276,27 +271,27 @@ export default function Home() {
         </section>
 
         {/* ==================== 2. EDUCATION & EXPERIENCE TIMELINE ==================== */}
-        <section id="education-experience" className="py-12 border-t border-zinc-800/60 scroll-mt-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+        <section id="education-experience" className="py-10 sm:py-12 border-t border-zinc-800/60 scroll-mt-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             
             {/* Left Column: Education */}
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               <div className="space-y-2">
-                <h2 className="text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
-                  <GraduationCap className="w-8 h-8 text-purple-400" />
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
+                  <GraduationCap className="w-7 h-7 sm:w-8 sm:h-8 text-purple-400 shrink-0" />
                   Education
                 </h2>
               </div>
 
-              <div className="relative border-l-2 border-purple-500/30 pl-6 space-y-10 ml-2">
+              <div className="relative border-l-2 border-purple-500/30 pl-4 sm:pl-6 space-y-8 sm:space-y-10 ml-1 sm:ml-2">
                 {/* University Item */}
                 <div className="relative group">
-                  <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
+                  <div className="absolute -left-[23px] sm:-left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
                   
                   <span className="text-xs font-semibold text-amber-400 tracking-wider">2023 – PRESENT</span>
                   
-                  <h3 className="text-lg font-bold text-white pt-1">Bachelor of Science (Computer Science)</h3>
-                  <p className="text-zinc-300 text-sm font-medium">University of Phayao</p>
+                  <h3 className="text-base sm:text-lg font-bold text-white pt-1">Bachelor of Science (Computer Science)</h3>
+                  <p className="text-zinc-300 text-xs sm:text-sm font-medium">University of Phayao</p>
                   <p className="text-zinc-400 text-xs pt-1">School of Information and Communication Technology</p>
                   <div className="pt-2">
                     <span className="inline-block px-2.5 py-0.5 rounded bg-purple-500/10 text-purple-300 text-xs font-semibold border border-purple-500/20">
@@ -307,12 +302,12 @@ export default function Home() {
 
                 {/* High School Item */}
                 <div className="relative group">
-                  <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500/60 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
+                  <div className="absolute -left-[23px] sm:-left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500/60 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
                   
                   <span className="text-xs font-semibold text-amber-400/80 tracking-wider">2020 – 2022</span>
                   
-                  <h3 className="text-lg font-bold text-white pt-1">High School Diploma in Arts-Language (English)</h3>
-                  <p className="text-zinc-300 text-sm font-medium">Phayaophitthayakhom School</p>
+                  <h3 className="text-base sm:text-lg font-bold text-white pt-1">High School Diploma in Arts-Language (English)</h3>
+                  <p className="text-zinc-300 text-xs sm:text-sm font-medium">Phayaophitthayakhom School</p>
                   <div className="pt-2">
                     <span className="inline-block px-2.5 py-0.5 rounded bg-zinc-800 text-zinc-300 text-xs font-semibold border border-zinc-700">
                       GPA: 3.93
@@ -323,23 +318,23 @@ export default function Home() {
             </div>
 
             {/* Right Column: Experience */}
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               <div className="space-y-2">
-                <h2 className="text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
-                  <Briefcase className="w-8 h-8 text-purple-400" />
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
+                  <Briefcase className="w-7 h-7 sm:w-8 sm:h-8 text-purple-400 shrink-0" />
                   Experience
                 </h2>
               </div>
 
-              <div className="relative border-l-2 border-purple-500/30 pl-6 space-y-10 ml-2">
+              <div className="relative border-l-2 border-purple-500/30 pl-4 sm:pl-6 space-y-8 sm:space-y-10 ml-1 sm:ml-2">
                 {/* Makro Item */}
                 <div className="relative group">
-                  <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
+                  <div className="absolute -left-[23px] sm:-left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
                   
                   <span className="text-xs font-semibold text-amber-400 tracking-wider">MAR 2025 – MAY 2025</span>
                   
-                  <h3 className="text-lg font-bold text-white pt-1">OCS (Online Customer Sevice)</h3>
-                  <p className="text-purple-300 text-sm font-medium">Makro (Part-time)</p>
+                  <h3 className="text-base sm:text-lg font-bold text-white pt-1">OCS (Online Customer Service)</h3>
+                  <p className="text-purple-300 text-xs sm:text-sm font-medium">Makro (Part-time)</p>
                   <ul className="text-zinc-400 text-xs pt-2 space-y-1.5 leading-relaxed list-disc list-inside">
                     <li>Picked and packed dynamic customer orders efficiently via Makro PRO app.</li>
                     <li>Verified order accuracy and proactively coordinated with delivery team or customers.</li>
@@ -349,12 +344,12 @@ export default function Home() {
 
                 {/* Rally Project Item */}
                 <div className="relative group">
-                  <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500/60 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
+                  <div className="absolute -left-[23px] sm:-left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500/60 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
                   
                   <span className="text-xs font-semibold text-amber-400/80 tracking-wider">2024 – 2025</span>
                   
-                  <h3 className="text-lg font-bold text-white pt-1">Lead Developer — Rally Application</h3>
-                  <p className="text-zinc-300 text-sm font-medium">University Capstone Project</p>
+                  <h3 className="text-base sm:text-lg font-bold text-white pt-1">Lead Developer — Rally App Capstone</h3>
+                  <p className="text-zinc-300 text-xs sm:text-sm font-medium">University Capstone Project</p>
                   <p className="text-zinc-400 text-xs pt-2 leading-relaxed">
                     Designed and developed real-time pose analysis mobile app using Flutter & Google ML Kit API to track human coordinates and control remote devices.
                   </p>
@@ -366,28 +361,28 @@ export default function Home() {
         </section>
 
         {/* ==================== 3. SKILLS SECTION ==================== */}
-        <section id="skills" className="py-12 space-y-10 border-t border-zinc-800/60 scroll-mt-24">
+        <section id="skills" className="py-10 sm:py-12 space-y-8 sm:space-y-10 border-t border-zinc-800/60 scroll-mt-24">
           
           <div className="text-center space-y-2">
-            <h2 className="text-3xl font-bold text-white flex items-center justify-center gap-2">
-              <Code2 className="w-7 h-7 text-purple-400" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-white flex items-center justify-center gap-2">
+              <Code2 className="w-6 h-6 sm:w-7 sm:h-7 text-purple-400" />
               Technical and Soft Skills
             </h2>
-            <p className="text-zinc-400 text-sm md:text-base">
+            <p className="text-zinc-400 text-xs sm:text-sm md:text-base">
               ทักษะทางเทคนิค เครื่องมือ และ Soft Skills
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
             
             {/* Left Column: Technical Tools & Software */}
-            <div className="lg:col-span-7 p-6 rounded-2xl bg-[#18181b]/60 border border-zinc-800 space-y-6">
+            <div className="lg:col-span-7 p-5 sm:p-6 rounded-2xl bg-[#18181b]/60 border border-zinc-800 space-y-6">
               <div className="border-b border-zinc-800 pb-3 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
                   <Sparkles className="w-4 h-4 text-amber-400" />
                   Technical Skills & Tools
                 </h3>
-                <span className="text-xs text-zinc-500 font-mono">Development & Tools</span>
+                <span className="text-[11px] sm:text-xs text-zinc-500 font-mono">Development & Tools</span>
               </div>
 
               <div className="space-y-5">
@@ -400,7 +395,7 @@ export default function Home() {
                       {category.skills.map((skill, sIdx) => (
                         <span
                           key={sIdx}
-                          className="px-3.5 py-1.5 rounded-xl bg-zinc-900 text-xs text-zinc-200 border border-zinc-800 hover:border-amber-400/50 hover:text-amber-300 transition-all shadow-sm"
+                          className="px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-xl bg-zinc-900 text-xs text-zinc-200 border border-zinc-800 hover:border-amber-400/50 hover:text-amber-300 transition-all shadow-sm"
                         >
                           {skill}
                         </span>
@@ -412,20 +407,20 @@ export default function Home() {
             </div>
 
             {/* Right Column: Soft Skills */}
-            <div className="lg:col-span-5 p-6 rounded-2xl bg-[#18181b]/60 border border-zinc-800 space-y-6">
+            <div className="lg:col-span-5 p-5 sm:p-6 rounded-2xl bg-[#18181b]/60 border border-zinc-800 space-y-6">
               <div className="border-b border-zinc-800 pb-3 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
                   <HeartHandshake className="w-4 h-4 text-purple-400" />
                   Soft Skills
                 </h3>
-                <span className="text-xs text-zinc-500 font-mono">Interpersonal</span>
+                <span className="text-[11px] sm:text-xs text-zinc-500 font-mono">Interpersonal</span>
               </div>
 
-              <div className="flex flex-wrap gap-2.5 pt-1">
+              <div className="flex flex-wrap gap-2 sm:gap-2.5 pt-1">
                 {softSkills.map((skill, idx) => (
                   <span
                     key={idx}
-                    className="px-3.5 py-2 rounded-full bg-amber-400/5 border border-amber-400/20 text-amber-300 text-xs font-semibold hover:bg-amber-400/10 hover:border-amber-400/40 transition-all cursor-default shadow-sm"
+                    className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-amber-400/5 border border-amber-400/20 text-amber-300 text-xs font-semibold hover:bg-amber-400/10 hover:border-amber-400/40 transition-all cursor-default shadow-sm"
                   >
                     {skill}
                   </span>
@@ -438,25 +433,25 @@ export default function Home() {
         </section>
 
         {/* ==================== 4. PROJECTS SECTION ==================== */}
-        <section id="projects" className="py-12 space-y-10 border-t border-zinc-800/60 scroll-mt-24">
+        <section id="projects" className="py-10 sm:py-12 space-y-8 sm:space-y-10 border-t border-zinc-800/60 scroll-mt-24">
           
           <div className="text-center space-y-2">
-            <h2 className="text-3xl font-bold text-white flex items-center justify-center gap-2">
-              <FolderGit2 className="w-7 h-7 text-purple-400" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-white flex items-center justify-center gap-2">
+              <FolderGit2 className="w-6 h-6 sm:w-7 sm:h-7 text-purple-400" />
               Projects & Personal Labs
             </h2>
-            <p className="text-zinc-400 text-sm md:text-base">
+            <p className="text-zinc-400 text-xs sm:text-sm md:text-base">
               ผลงานการพัฒนาแอปพลิเคชันและโปรเจกต์ทดลองส่วนตัว (คลิกที่การ์ดเพื่อดูรายละเอียดเพิ่มเติม)
             </p>
           </div>
 
           {/* PROJECT GALLERY GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {projects.map((project, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveModalProject(project)}
-                className="group relative h-[320px] rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/80 text-left transition-all duration-300 hover:border-amber-400/80 hover:scale-[1.02] shadow-xl flex flex-col justify-end p-6 cursor-pointer"
+                className="group relative h-[280px] sm:h-[320px] rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/80 text-left transition-all duration-300 hover:border-amber-400/80 hover:scale-[1.02] shadow-xl flex flex-col justify-end p-5 sm:p-6 cursor-pointer"
               >
                 {/* Background Image / Cover */}
                 <img
@@ -464,7 +459,6 @@ export default function Home() {
                   alt={project.title}
                   className="absolute inset-0 w-full h-full object-cover object-top opacity-60 group-hover:opacity-85 group-hover:scale-105 transition-all duration-500"
                   onError={(e) => {
-                    // Fallback if image not found
                     e.currentTarget.style.display = 'none';
                   }}
                 />
@@ -475,16 +469,16 @@ export default function Home() {
                 {/* Category & Status Pill */}
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 z-10">
                   <span className="text-[10px] font-bold text-amber-300 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-amber-400/30 flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 text-amber-400" />
-                    {project.category}
+                    <Sparkles className="w-3 h-3 text-amber-400 shrink-0" />
+                    <span className="truncate">{project.category}</span>
                   </span>
 
                   {project.isCompleted ? (
-                    <span className="text-[10px] font-medium text-emerald-400 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-emerald-500/30">
+                    <span className="text-[10px] font-medium text-emerald-400 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-emerald-500/30 shrink-0">
                       {project.status}
                     </span>
                   ) : (
-                    <span className="text-[10px] font-medium text-amber-400 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-amber-500/30">
+                    <span className="text-[10px] font-medium text-amber-400 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-amber-500/30 shrink-0">
                       {project.status}
                     </span>
                   )}
@@ -492,7 +486,7 @@ export default function Home() {
 
                 {/* Card Content Overlay */}
                 <div className="relative z-10 space-y-2">
-                  <h3 className="text-lg font-bold text-white group-hover:text-amber-300 transition-colors line-clamp-2">
+                  <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-amber-300 transition-colors line-clamp-2">
                     {project.title}
                   </h3>
                   <p className="text-xs text-zinc-300 line-clamp-2">
@@ -516,23 +510,23 @@ export default function Home() {
             ))}
           </div>
 
-          {/* ==================== LANGUAGES & HOBBIES SECTION (อยู่ใต้ PROJECTS) ==================== */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-6 border-t border-zinc-800/40">
+          {/* ==================== LANGUAGES & HOBBIES SECTION ==================== */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start pt-6 border-t border-zinc-800/40">
             
             {/* Left: Languages Card */}
-            <div className="lg:col-span-5 p-6 rounded-2xl bg-[#18181b]/60 border border-zinc-800 space-y-6">
+            <div className="lg:col-span-5 p-5 sm:p-6 rounded-2xl bg-[#18181b]/60 border border-zinc-800 space-y-6">
               <div className="border-b border-zinc-800 pb-3 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
                   <Globe className="w-4 h-4 text-amber-400" />
                   Languages
                 </h3>
                 <span className="text-xs text-zinc-500 font-mono">Communication</span>
               </div>
 
-              <div className="flex flex-wrap gap-8 pt-1">
+              <div className="flex flex-wrap gap-6 sm:gap-8 pt-1">
                 {languagesList.map((lang, idx) => (
                   <div key={idx} className="space-y-1">
-                    <span className="text-base font-bold text-white block">{lang.name}</span>
+                    <span className="text-sm sm:text-base font-bold text-white block">{lang.name}</span>
                     <span className="text-xs text-zinc-400 block">{lang.level}</span>
                   </div>
                 ))}
@@ -540,9 +534,9 @@ export default function Home() {
             </div>
 
             {/* Right: Hobbies & Interests Card */}
-            <div className="lg:col-span-7 p-6 rounded-2xl bg-[#18181b]/60 border border-zinc-800 space-y-6">
+            <div className="lg:col-span-7 p-5 sm:p-6 rounded-2xl bg-[#18181b]/60 border border-zinc-800 space-y-6">
               <div className="border-b border-zinc-800 pb-3 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
                   <Heart className="w-4 h-4 text-purple-400" />
                   Hobbies & Interests
                 </h3>
@@ -552,10 +546,10 @@ export default function Home() {
               <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 pt-1 text-center">
                 {hobbiesList.map((hobby, idx) => (
                   <div key={idx} className="flex flex-col items-center gap-2 group cursor-default">
-                    <span className="text-2xl p-3 rounded-2xl bg-zinc-900 border border-zinc-800 group-hover:border-amber-400/50 group-hover:scale-110 transition-all shadow-md">
+                    <span className="text-xl sm:text-2xl p-2.5 sm:p-3 rounded-2xl bg-zinc-900 border border-zinc-800 group-hover:border-amber-400/50 group-hover:scale-110 transition-all shadow-md">
                       {hobby.icon}
                     </span>
-                    <span className="text-xs font-medium text-zinc-300 group-hover:text-amber-300 transition-colors">
+                    <span className="text-[11px] sm:text-xs font-medium text-zinc-300 group-hover:text-amber-300 transition-colors">
                       {hobby.label}
                     </span>
                   </div>
@@ -568,15 +562,15 @@ export default function Home() {
         </section>
 
         {/* ==================== FOOTER ==================== */}
-        <footer className="pt-16 pb-8 border-t border-zinc-800/80 space-y-12">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+        <footer className="pt-12 sm:pt-16 pb-8 border-t border-zinc-800/80 space-y-10 sm:space-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start">
             
             {/* Brand & Short Intro */}
             <div className="md:col-span-6 space-y-3">
-              <div className="text-2xl font-extrabold text-white tracking-wider flex items-center gap-2">
+              <div className="text-xl sm:text-2xl font-extrabold text-white tracking-wider flex items-center gap-2">
                 <span className="text-amber-400">✦</span> JIRAT PANUNTA
               </div>
-              <p className="text-zinc-400 text-xs md:text-sm leading-relaxed max-w-md">
+              <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed max-w-md">
                 นิสิตสาขาวิทยาการคอมพิวเตอร์ ปี 4 มหาวิทยาลัยพะเยา พร้อมมุ่งมั่นที่จะเรียนรู้เทคโนโลยีใหม่ๆ และนำทักษะที่ได้ไปต่อยอดในการทำงานจริงร่วมกับทีม
               </p>
             </div>
@@ -640,7 +634,7 @@ export default function Home() {
           </div>
 
           {/* Bottom Copyright & Back to Top Button */}
-          <div className="border-t border-zinc-800/60 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+          <div className="border-t border-zinc-800/60 pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
             <p>© 2026 Jirat Panunta. All rights reserved.</p>
             <a 
               href="#" 
@@ -657,38 +651,38 @@ export default function Home() {
       {/* ==================== PROJECT DETAILS POPUP MODAL ==================== */}
       {activeModalProject && (
         <div 
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 animate-fadeIn"
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 md:p-8 animate-fadeIn"
           onClick={() => setActiveModalProject(null)}
         >
           <div 
-            className="bg-[#18181b] border border-zinc-800 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden shadow-2xl flex flex-col relative"
+            className="bg-[#18181b] border border-zinc-800 rounded-2xl max-w-3xl w-full max-h-[85vh] sm:max-h-[90vh] overflow-hidden shadow-2xl flex flex-col relative"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
             <div className="p-4 border-b border-zinc-800 flex items-center justify-between bg-zinc-900/50">
-              <div className="flex items-center gap-2">
-                <FolderGit2 className="w-5 h-5 text-amber-400" />
-                <h3 className="text-base font-bold text-white">
+              <div className="flex items-center gap-2 truncate pr-2">
+                <FolderGit2 className="w-5 h-5 text-amber-400 shrink-0" />
+                <h3 className="text-sm sm:text-base font-bold text-white truncate">
                   {activeModalProject.title}
                 </h3>
               </div>
               <button
                 onClick={() => setActiveModalProject(null)}
-                className="p-1 rounded-lg hover:bg-zinc-800 text-zinc-400 hover:text-white transition-colors cursor-pointer"
+                className="p-1 rounded-lg hover:bg-zinc-800 text-zinc-400 hover:text-white transition-colors cursor-pointer shrink-0"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             {/* Modal Body */}
-            <div className="p-6 overflow-y-auto space-y-6 max-h-[75vh]">
+            <div className="p-4 sm:p-6 overflow-y-auto space-y-5 sm:space-y-6 max-h-[75vh]">
               
               {/* Category & Status */}
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-xs font-bold text-amber-300 bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">
+                <span className="text-[11px] sm:text-xs font-bold text-amber-300 bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">
                   {activeModalProject.category}
                 </span>
-                <span className="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+                <span className="text-[11px] sm:text-xs font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
                   {activeModalProject.status}
                 </span>
               </div>
@@ -696,7 +690,7 @@ export default function Home() {
               {/* Description */}
               <div className="space-y-1">
                 <h4 className="text-xs font-mono uppercase text-purple-300 tracking-wider">About Project</h4>
-                <p className="text-zinc-300 text-sm leading-relaxed">
+                <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed">
                   {activeModalProject.description}
                 </p>
               </div>
@@ -716,7 +710,7 @@ export default function Home() {
                 <h4 className="text-xs font-mono uppercase text-purple-300 tracking-wider">Technologies Used</h4>
                 <div className="flex flex-wrap gap-1.5">
                   {activeModalProject.techStack.map((tech: string, tIdx: number) => (
-                    <span key={tIdx} className="text-xs px-3 py-1 rounded-lg bg-zinc-900 text-zinc-200 border border-zinc-800">
+                    <span key={tIdx} className="text-xs px-2.5 py-1 rounded-lg bg-zinc-900 text-zinc-200 border border-zinc-800">
                       {tech}
                     </span>
                   ))}
@@ -731,7 +725,7 @@ export default function Home() {
                     <div key={vIdx} className="space-y-1.5">
                       <p className="text-xs text-amber-400 font-semibold">{vid.title}</p>
                       <div className="rounded-xl overflow-hidden border border-zinc-800 bg-black flex items-center justify-center">
-                        <video controls className="w-full max-h-[350px] object-contain">
+                        <video controls className="w-full max-h-[280px] sm:max-h-[350px] object-contain">
                           <source src={vid.url} type="video/mp4" />
                           เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอนี้
                         </video>
