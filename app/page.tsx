@@ -12,7 +12,8 @@ import {
   Image as ImageIcon,
   Video as VideoIcon,
   X,
-  Sparkles
+  Sparkles,
+  HeartHandshake
 } from 'lucide-react';
 
 export default function Home() {
@@ -21,7 +22,7 @@ export default function Home() {
   const [modalTitle, setModalTitle] = useState<string>('');
 
   // 1. หมวดหมู่ทักษะความสามารถ (Skills)
-  const skillCategories = [
+  const techSkillCategories = [
     {
       title: 'Mobile & UI Development',
       skills: ['Flutter (Dart)', 'Figma (UI/UX)'],
@@ -34,6 +35,16 @@ export default function Home() {
       title: 'Technical Tools & Platforms',
       skills: ['Git & GitHub', 'VS Code', 'Firebase', 'Vercel'],
     },
+  ];
+
+  // 1.2 ทักษะด้าน Soft Skills
+  const softSkills = [
+    '#Problem Solving',
+    '#Adaptability',
+    '#Continuous Learning',
+    '#Communication',
+    '#Teamwork',
+    '#Detail-oriented',
   ];
 
   // 2. รายการผลงาน (Projects)
@@ -178,7 +189,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 -z-10 bg-gradient-to-t from-zinc-950 via-zinc-900 to-zinc-800 flex flex-col items-center justify-center p-6 text-center text-zinc-500">
                     <span className="text-4xl mb-2">👨‍💻</span>
-                    <span className="text-xs">วางรูปโปรไฟล์ที่ public/profile.jpg</span>
+                    <span className="text-xs">วางรูปโปรไฟล์ที่ public/profile.png</span>
                   </div>
                 </div>
 
@@ -205,7 +216,7 @@ export default function Home() {
               </div>
 
               <p className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-xl">
-                สวัสดีครับ ผมจิรัฏฐ์ ปานันตา นิสิตสาขาวิทยาการคอมพิวเตอร์ ปี 4 มหาวิทยาลัยพะเยา พร้อมมุ่งมั่นที่จะเรียนรู้เทคโนโลยีใหม่ๆ และนำทักษะที่ได้ไปต่อยอดในการทำงานจริงร่วมกับทีม
+                สวัสดีครับ ผม นายจิรัฏฐ์ ปานันตา นิสิตสาขาวิทยาการคอมพิวเตอร์ ปี 4 มหาวิทยาลัยพะเยา พร้อมมุ่งมั่นที่จะเรียนรู้เทคโนโลยีใหม่ๆ และนำทักษะที่ได้ไปต่อยอดในการทำงานจริงร่วมกับทีมครับ
               </p>
 
               {/* Contact Links as Badges */}
@@ -337,40 +348,78 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ==================== 3. SKILLS SECTION ==================== */}
+        {/* ==================== 3. SKILLS SECTION (SOFTWARE & TOOLS + SOFT SKILLS) ==================== */}
         <section id="skills" className="py-12 space-y-10 border-t border-zinc-800/60">
           
           <div className="text-center space-y-2">
             <h2 className="text-3xl font-bold text-white flex items-center justify-center gap-2">
               <Code2 className="w-7 h-7 text-purple-400" />
-              Tech Stack & Skills
+              Technical & Soft Skills
             </h2>
             <p className="text-zinc-400 text-sm md:text-base">
-              ทักษะทางเทคนิคและเครื่องมือที่เชี่ยวชาญ
+              ทักษะทางเทคนิค เครื่องมือ และทักษะการทำงานร่วมกับผู้อื่น
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {skillCategories.map((category, idx) => (
-              <div
-                key={idx}
-                className="p-5 rounded-2xl bg-[#18181b]/50 border border-zinc-800 space-y-3 hover:border-amber-400/30 transition-all"
-              >
-                <h4 className="text-sm font-semibold text-zinc-300 border-b border-zinc-800 pb-2">
-                  {category.title}
-                </h4>
-                <div className="flex flex-wrap gap-2 pt-1">
-                  {category.skills.map((skill, sIdx) => (
-                    <span
-                      key={sIdx}
-                      className="px-3 py-1 rounded-lg bg-zinc-900 text-xs text-zinc-200 border border-zinc-800 hover:border-amber-400/50 hover:text-amber-300 transition-all"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            {/* Left Column: Software & Technical Tools */}
+            <div className="lg:col-span-7 p-6 rounded-2xl bg-[#18181b]/60 border border-zinc-800 space-y-6">
+              <div className="border-b border-zinc-800 pb-3 flex items-center justify-between">
+                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-amber-400" />
+                  Software & Technical Tools
+                </h3>
+                <span className="text-xs text-zinc-500 font-mono">Technical Stack</span>
               </div>
-            ))}
+
+              <div className="space-y-5">
+                {techSkillCategories.map((category, idx) => (
+                  <div key={idx} className="space-y-2.5">
+                    <h4 className="text-xs font-semibold text-purple-300 uppercase tracking-wider">
+                      {category.title}
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill, sIdx) => (
+                        <span
+                          key={sIdx}
+                          className="px-3.5 py-1.5 rounded-xl bg-zinc-900 text-xs text-zinc-200 border border-zinc-800 hover:border-amber-400/50 hover:text-amber-300 transition-all shadow-sm"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column: Soft Skills */}
+            <div className="lg:col-span-5 p-6 rounded-2xl bg-[#18181b]/60 border border-zinc-800 space-y-6">
+              <div className="border-b border-zinc-800 pb-3 flex items-center justify-between">
+                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                  <HeartHandshake className="w-4 h-4 text-purple-400" />
+                  Soft Skills
+                </h3>
+                <span className="text-xs text-zinc-500 font-mono">Interpersonal</span>
+              </div>
+
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                ทักษะการทำงานร่วมกัน การสื่อสาร และการปรับตัวในการทำงานเป็นทีม
+              </p>
+
+              <div className="flex flex-wrap gap-2.5 pt-1">
+                {softSkills.map((skill, idx) => (
+                  <span
+                    key={idx}
+                    className="px-4 py-2 rounded-full bg-amber-400/5 border border-amber-400/20 text-amber-300 text-xs font-semibold hover:bg-amber-400/10 hover:border-amber-400/40 transition-all cursor-default shadow-sm"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
           </div>
 
         </section>
