@@ -169,7 +169,7 @@ export default function Home() {
                 <div className="relative w-full h-[420px] rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl">
                   {/* eslint-disable-next-html-link */}
                   <img
-                    src="/profile.jpg"
+                    src="/profile.png"
                     alt="Jirat Panunta"
                     className="w-full h-full object-cover object-top"
                     onError={(e) => {
