@@ -13,7 +13,11 @@ import {
   Video as VideoIcon,
   X,
   Sparkles,
-  HeartHandshake
+  HeartHandshake,
+  Phone,
+  Globe,
+  Heart,
+  ArrowUp
 } from 'lucide-react';
 
 export default function Home() {
@@ -40,10 +44,26 @@ export default function Home() {
   // 1.2 ทักษะทางด้าน Soft Skills
   const softSkills = [
     '#Teamwork & Collaboration',
-    '#Technical Documentation',
+    '#Fast Learner',
     '#Effective Communication',
     '#Problem-Solving',
     '#Time Management',
+  ];
+
+  // 1.3 ภาษา (Languages)
+  const languagesList = [
+    { name: 'Thai', level: 'Native' },
+    { name: 'English', level: 'Basic Working Proficiency' },
+  ];
+
+  // 1.4 งานอดิเรกและความสนใจ (Hobbies & Interests)
+  const hobbiesList = [
+    { label: 'Technology', icon: '💻' },
+    { label: 'Fitness', icon: '🏋️‍♂️' },
+    { label: 'Gaming', icon: '🎮' },
+    { label: 'Reading', icon: '📚' },
+    { label: 'Traveling', icon: '✈️' },
+    { label: 'Anime', icon: '🍿' },
   ];
 
   // 2. รายการผลงาน (Projects)
@@ -135,10 +155,10 @@ export default function Home() {
           </a>
 
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-purple-200/80">
-            <a href="#about" className="hover:text-amber-400 transition-colors">เกี่ยวกับฉัน</a>
-            <a href="#education-experience" className="hover:text-amber-400 transition-colors">ประวัติ & ประสบการณ์</a>
-            <a href="#skills" className="hover:text-amber-400 transition-colors">ทักษะ</a>
-            <a href="#projects" className="hover:text-amber-400 transition-colors">ผลงาน</a>
+            <a href="#about" className="hover:text-amber-400 transition-colors">About me</a>
+            <a href="#education-experience" className="hover:text-amber-400 transition-colors">Resume</a>
+            <a href="#skills" className="hover:text-amber-400 transition-colors">Skills</a>
+            <a href="#projects" className="hover:text-amber-400 transition-colors">Projects</a>
           </nav>
 
           {/* VIBRANT YELLOW PILL BUTTON */}
@@ -353,10 +373,10 @@ export default function Home() {
           <div className="text-center space-y-2">
             <h2 className="text-3xl font-bold text-white flex items-center justify-center gap-2">
               <Code2 className="w-7 h-7 text-purple-400" />
-              Skills & Qualifications
+              Technical and Soft Skills
             </h2>
             <p className="text-zinc-400 text-sm md:text-base">
-              ทักษะทางเทคนิค เครื่องมือ และ Soft Skills ตามประวัติย่อ (Resume)
+              ทักษะทางเทคนิค เครื่องมือ และ Soft Skills
             </p>
           </div>
 
@@ -402,10 +422,6 @@ export default function Home() {
                 </h3>
                 <span className="text-xs text-zinc-500 font-mono">Interpersonal</span>
               </div>
-
-              <p className="text-xs text-zinc-400 leading-relaxed">
-                ทักษะการทำงานร่วมกัน การสื่อสาร และการบริหารจัดการในการทำงานร่วมกับทีม
-              </p>
 
               <div className="flex flex-wrap gap-2.5 pt-1">
                 {softSkills.map((skill, idx) => (
@@ -553,12 +569,140 @@ export default function Home() {
             })}
           </div>
 
+          {/* ==================== LANGUAGES & HOBBIES SECTION (ย้ายมาไว้ใต้ PROJECTS) ==================== */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-6">
+            
+            {/* Left: Languages Card */}
+            <div className="lg:col-span-5 p-6 rounded-2xl bg-[#18181b]/60 border border-zinc-800 space-y-6">
+              <div className="border-b border-zinc-800 pb-3 flex items-center justify-between">
+                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                  <Globe className="w-4 h-4 text-amber-400" />
+                  Languages
+                </h3>
+                <span className="text-xs text-zinc-500 font-mono">Communication</span>
+              </div>
+
+              <div className="flex flex-wrap gap-8 pt-1">
+                {languagesList.map((lang, idx) => (
+                  <div key={idx} className="space-y-1">
+                    <span className="text-base font-bold text-white block">{lang.name}</span>
+                    <span className="text-xs text-zinc-400 block">{lang.level}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Hobbies & Interests Card */}
+            <div className="lg:col-span-7 p-6 rounded-2xl bg-[#18181b]/60 border border-zinc-800 space-y-6">
+              <div className="border-b border-zinc-800 pb-3 flex items-center justify-between">
+                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                  <Heart className="w-4 h-4 text-purple-400" />
+                  Hobbies & Interests
+                </h3>
+                <span className="text-xs text-zinc-500 font-mono">Personal & Lifestyle</span>
+              </div>
+
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 pt-1 text-center">
+                {hobbiesList.map((hobby, idx) => (
+                  <div key={idx} className="flex flex-col items-center gap-2 group cursor-default">
+                    <span className="text-2xl p-3 rounded-2xl bg-zinc-900 border border-zinc-800 group-hover:border-amber-400/50 group-hover:scale-110 transition-all shadow-md">
+                      {hobby.icon}
+                    </span>
+                    <span className="text-xs font-medium text-zinc-300 group-hover:text-amber-300 transition-colors">
+                      {hobby.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+
         </section>
 
         {/* ==================== FOOTER ==================== */}
-        <footer className="pt-16 pb-8 border-t border-zinc-800 text-center text-zinc-500 text-xs md:text-sm space-y-2">
-          <p>© 2026 Jirat Panunta. Built with Next.js, Tailwind CSS & Vercel.</p>
-          <p className="text-zinc-600 text-xs">University of Phayao • Computer Science Student</p>
+        <footer className="pt-16 pb-8 border-t border-zinc-800/80 space-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+            
+            {/* Brand & Short Intro */}
+            <div className="md:col-span-6 space-y-3">
+              <div className="text-2xl font-extrabold text-white tracking-wider flex items-center gap-2">
+                <span className="text-amber-400">✦</span> JIRAT PANUNTA
+              </div>
+              <p className="text-zinc-400 text-xs md:text-sm leading-relaxed max-w-md">
+                นิสิตสาขาวิทยาการคอมพิวเตอร์ ปี 4 มหาวิทยาลัยพะเยา พร้อมมุ่งมั่นที่จะเรียนรู้เทคโนโลยีใหม่ๆ และนำทักษะที่ได้ไปต่อยอดในการทำงานจริงร่วมกับทีม
+              </p>
+            </div>
+
+            {/* NAVIGATION Column */}
+            <div className="md:col-span-3 space-y-3">
+              <h4 className="text-xs font-bold text-amber-400 uppercase tracking-widest font-mono">
+                NAVIGATION
+              </h4>
+              <ul className="space-y-2 text-xs text-zinc-400">
+                <li>
+                  <a href="#about" className="hover:text-white transition-colors">About me</a>
+                </li>
+                <li>
+                  <a href="#education-experience" className="hover:text-white transition-colors">Resume</a>
+                </li>
+                <li>
+                  <a href="#skills" className="hover:text-white transition-colors">Skills</a>
+                </li>
+                <li>
+                  <a href="#projects" className="hover:text-white transition-colors">Projects</a>
+                </li>
+              </ul>
+            </div>
+
+            {/* CONNECT Column */}
+            <div className="md:col-span-3 space-y-3">
+              <h4 className="text-xs font-bold text-amber-400 uppercase tracking-widest font-mono">
+                CONNECT
+              </h4>
+              <ul className="space-y-2 text-xs text-zinc-400">
+                <li>
+                  <a 
+                    href="https://github.com/jirattong" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors flex items-center gap-1.5"
+                  >
+                    GitHub: jirattong.github.io
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="mailto:panuntajirat@gmail.com" 
+                    className="hover:text-white transition-colors"
+                  >
+                    Email: panuntajirat@gmail.com
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="tel:0948760595" 
+                    className="hover:text-white transition-colors"
+                  >
+                    Phone: 094-876-0595
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          {/* Bottom Copyright & Back to Top Button */}
+          <div className="border-t border-zinc-800/60 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+            <p>© 2026 Jirat Panunta. All rights reserved.</p>
+            <a 
+              href="#" 
+              className="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 font-semibold transition-colors"
+            >
+              <span>Back to Top</span>
+              <ArrowUp className="w-3.5 h-3.5" />
+            </a>
+          </div>
         </footer>
 
       </main>
@@ -622,33 +766,6 @@ export default function Home() {
                   </div>
                 </div>
               ))}
-
-              {/* IMAGES SECTION */}
-              {activeModalImages && activeModalImages.length > 0 && (
-                <div className="space-y-4 pt-2 border-t border-zinc-800/80">
-                  <h4 className="text-sm font-semibold text-zinc-300 flex items-center gap-2">
-                    <ImageIcon className="w-4 h-4 text-purple-400" />
-                    รูปภาพหน้าตาแอป (Screenshots)
-                  </h4>
-                  {activeModalImages.map((src, imgIdx) => (
-                    <div key={imgIdx} className="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 flex items-center justify-center">
-                      {/* eslint-disable-next-html-link */}
-                      <img
-                        src={src}
-                        alt={`Screenshot ${imgIdx + 1}`}
-                        className="max-h-[600px] w-auto object-contain"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                        }}
-                      />
-                      <div className="p-8 text-center text-zinc-500 text-xs space-y-1">
-                        <p className="font-semibold text-zinc-400">📷 แสดงภาพตัวอย่าง: {src}</p>
-                        <p>กรุณาวางไฟล์รูปภาพของคุณไว้ที่โฟลเดอร์ <code className="text-amber-400">public{src}</code></p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
 
             </div>
           </div>
