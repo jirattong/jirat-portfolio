@@ -353,7 +353,7 @@ export default function Home() {
                   
                   <span className="text-xs font-semibold text-amber-400/80 tracking-wider">2024 – 2025</span>
                   
-                  <h3 className="text-lg font-bold text-white pt-1">Lead Developer — Rally App Capstone</h3>
+                  <h3 className="text-lg font-bold text-white pt-1">Lead Developer — Rally Application</h3>
                   <p className="text-zinc-300 text-sm font-medium">University Capstone Project</p>
                   <p className="text-zinc-400 text-xs pt-2 leading-relaxed">
                     Designed and developed real-time pose analysis mobile app using Flutter & Google ML Kit API to track human coordinates and control remote devices.
