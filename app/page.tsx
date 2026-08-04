@@ -73,11 +73,11 @@ export default function Home() {
       category: 'Academic Capstone',
       status: 'เสร็จสมบูรณ์ (โปรเจกต์จบ)',
       isCompleted: true,
-      description: 'แอปพลิเคชันมือถือแบบ Cross-platform สำหรับควบคุมอุปกรณ์ด้วยท่าทาง (Gesture Control) ประมวลผลภาพจากกล้องแบบ Real-time ร่วมกับ Machine Learning',
+      description: 'แอปพลิเคชันมือถือแบบ Cross-platform สำหรับควบคุมอุปกรณ์ IOT ด้วยท่าทาง (Gesture Control) ประมวลผลภาพจากกล้องแบบ Real-time ร่วมกับ Machine Learning',
       highlights: [
         'ใช้ Google ML Kit Pose Detection API ตรวจจับและวิเคราะห์พิกัดโครงสร้างร่างกายแบบ Real-time',
-        'ประยุกต์ใช้ K-Nearest Neighbors (KNN) และ 3-State Machine ตรวจจับและจำแนกท่าทางของผู้ใช้',
-        'เชื่อมต่อ Firebase Realtime Database ส่งคำสั่งความหน่วงต่ำ (Low-latency)',
+        'ประยุกต์ใช้ KNN Algorithm และ 3-State Machine รองรับการจดจำและจำแนก ท่าทางกำหนดเองแบบส่วนบุคคล (User-Defined Gestures) ได้ทันที',
+        'ใช้ Firebase Realtime Database ทำหน้าที่เป็น IoT Bridge ซิงโครไนซ์คำสั่งแบบ Real-time และความหน่วงต่ำ',
         'จำลองการสั่งการหุ่นยนต์ใน 2D Environment ด้วย ROS TurtleSim Simulation',
       ],
       techStack: ['Flutter', 'Dart', 'Google ML Kit', 'KNN Algorithm', 'Firebase', 'ROS'],
@@ -104,10 +104,12 @@ export default function Home() {
       isCompleted: false,
       description: 'การพัฒนาแพลตฟอร์มสารสนเทศสำหรับติดตามสถานะและตำแหน่ง แจ้งเตือนเชิงพื้นที่ และประสานเส้นทางรถพยาบาลฉุกเฉินเพื่อสนับสนุนการส่งต่อผู้ป่วยฉุกเฉินในประเทศไทย',
       highlights: [
-        'ออกแบบ UI/UX บน Figma ให้ใช้งานง่ายและเข้าถึงสะดวก',
-        'พัฒนาระบบด้วย flutter และ เทคโนโลยี Geofencing',
+        'ระบบตรวจจับพิกัดด้วย Geofencing แจ้งเตือนผู้ขับขี่บนท้องถนนล่วงหน้าด้วยป๊อปอัปกลางจอและสัญญาณเสียง พร้อมแสดงระยะทางถอยหลังแบบ Real-time ช่วยให้ผู้ใช้รถใช้ถนนเบี่ยงหลบทางได้อย่างทันท่วงที',
+        'เจ้าหน้าที่บนรถพยาบาลสามารถเลือกเปิด/ปิดการส่งสัญญาณเตือนภัย (Notification Alert) เฉพาะยามมีเคสเร่งด่วน พร้อมโหมดทางหลวง (Highway Mode) และ GPS ความละเอียดสูง เพื่อขยายรัศมีการยิงสัญญาณเตือนตามสภาพการจราจร',
+        'รองรับการอัปเดตสถานะการปฏิบัติงานแบบ 5 ขั้นตอน (ตั้งแต่รับเคส ถึงจุดเกิดเหตุ รับผู้ป่วย นำส่ง รพ.) พร้อมระบบคูลดาวน์นับถอยหลังป้องกันการกดเปลี่ยนสถานะพลาดขณะรถวิ่ง',
+        'เจ้าหน้าที่กู้ชีพสามารถถ่ายและอัปเดตรูปภาพเหตุการณ์หน้างานส่งตรงไปยังห้องฉุกเฉิน (ER) ของโรงพยาบาลปลายทาง เพื่อให้ทีมแพทย์และพยาบาลเตรียมอุปกรณ์และเตียงรอรับผู้ป่วยได้ทันที'
       ],
-      techStack: ['Flutter', 'Dart', 'Figma'],
+      techStack: ['Flutter', 'Dart', 'Figma', 'OpenStreetMap', 'Geofencing & Distance Engine'],
       githubUrl: 'https://github.com/jirattong/route-alert-app',
       demoUrl: '',
       videos: [],
@@ -120,13 +122,13 @@ export default function Home() {
       category: 'Personal Project',
       status: 'Side Project',
       isCompleted: true,
-      description: 'แอปพลิเคชันส่วนตัวสำหรับบันทึกประวัติการบำรุงรักษารถมอเตอร์ไซค์ บูรณาการ LLM จาก Google Gemini API (Free Key) คอยวิเคราะห์อาการเสีย ให้คำแนะนำเทคนิค และตอบข้อสงสัยแบบเรียลไทม์',
+      description: 'แอปพลิเคชันส่วนตัวสำหรับบันทึกประวัติการบำรุงรักษารถมอเตอร์ไซค์ บูรณาการ AI Chatbot จาก Google Gemini API (Free Key) คอยวิเคราะห์อาการเสีย ให้คำแนะนำเทคนิค และตอบข้อสงสัยแบบเรียลไทม์',
       highlights: [
         'พัฒนาระบบบันทึกประวัติการเปลี่ยนถ่ายน้ำมันเครื่อง อะไหล่ และการเช็กระยะสภาพรถส่วนตัว',
-        'เชื่อมต่อ LLM ผ่าน Google Gemini API (Free Tier Key) วิเคราะห์อาการประมวลผลคำตอบเกี่ยวกับมอเตอร์ไซค์',
+        'เชื่อมต่อ AI Chatbot ผ่าน Google Gemini API (Free Tier Key) วิเคราะห์อาการประมวลผลคำตอบเกี่ยวกับมอเตอร์ไซค์',
         'ช่วยบริหารจัดการประวัติการซ่อมบำรุง ค้นหาข้อมูล และรับคำแนะนำด้านเทคนิครถมอเตอร์ไซค์อย่างมีประสิทธิภาพ',
       ],
-      techStack: ['TypeScript', 'Google Gemini API', 'Tailwind CSS', 'GitHub'],
+      techStack: ['TypeScript', 'Google Gemini API', 'Tailwind CSS', 'Generative AI Integrated System'],
       githubUrl: 'https://github.com/jirattong/moto-maintenance',
       demoUrl: 'https://moto-maintenance-nine.vercel.app/',
       videos: [],
@@ -348,7 +350,7 @@ export default function Home() {
                   
                   <span className="text-xs font-semibold text-amber-400/80 tracking-wider">2024 – 2025</span>
                   
-                  <h3 className="text-base sm:text-lg font-bold text-white pt-1">Lead Developer — Rally App Capstone</h3>
+                  <h3 className="text-base sm:text-lg font-bold text-white pt-1">Lead Developer — Rally Application</h3>
                   <p className="text-zinc-300 text-xs sm:text-sm font-medium">University Capstone Project</p>
                   <p className="text-zinc-400 text-xs pt-2 leading-relaxed">
                     Designed and developed real-time pose analysis mobile app using Flutter & Google ML Kit API to track human coordinates and control remote devices.
