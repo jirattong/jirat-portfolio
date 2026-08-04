@@ -21,9 +21,7 @@ import {
 } from 'lucide-react';
 
 export default function Home() {
-  const [activeModalImages, setActiveModalImages] = useState<string[] | null>(null);
-  const [activeModalVideos, setActiveModalVideos] = useState<{ title: string; url: string }[] | null>(null);
-  const [modalTitle, setModalTitle] = useState<string>('');
+  const [activeModalProject, setActiveModalProject] = useState<any>(null);
 
   // 1. หมวดหมู่ทักษะทางเทคนิค (Technical Skills & Tools)
   const techSkillCategories = [
@@ -66,11 +64,12 @@ export default function Home() {
     { label: 'Anime', icon: '🍿' },
   ];
 
-  // 2. รายการผลงาน (Projects)
+  // 2. รายการผลงาน (Projects) พร้อมเพิ่มรูป Cover Image
   const projects = [
     {
-      title: 'Rally Application - Real-Time Pose Analysis',
+      title: 'Rally Application — Real-Time Pose Analysis',
       subtitle: 'Mobile Application for Remote Device Control (2024 - 2025)',
+      coverImage: '/rally-thumbnail.png',
       category: 'Academic Capstone',
       status: 'เสร็จสมบูรณ์ (โปรเจกต์จบ)',
       isCompleted: true,
@@ -97,8 +96,9 @@ export default function Home() {
       screenshots: [],
     },
     {
-      title: 'RouteAlert',
+      title: 'RouteAlert — Real-Time Ambulance Detection',
       subtitle: 'Real-Time Route & Transit Notification System',
+      coverImage: '/routealert-thumbnail.png',
       category: 'Academic / Team Project',
       status: 'กำลังพัฒนา (In Progress)',
       isCompleted: false,
@@ -116,6 +116,7 @@ export default function Home() {
     {
       title: 'Moto Maintenance — Smart Motorcycle Care & AI Advisor',
       subtitle: 'Personal Side Project',
+      coverImage: '/moto-thumbnail.png',
       category: 'Personal Project',
       status: 'Side Project',
       isCompleted: true,
@@ -132,11 +133,6 @@ export default function Home() {
       screenshots: [],
     },
   ];
-
-  const closeModal = () => {
-    setActiveModalImages(null);
-    setActiveModalVideos(null);
-  };
 
   return (
     <div className="min-h-screen bg-[#0e0e10] text-zinc-100 relative font-sans scroll-smooth">
@@ -340,7 +336,7 @@ export default function Home() {
                   
                   <span className="text-xs font-semibold text-amber-400 tracking-wider">MAR 2025 – MAY 2025</span>
                   
-                  <h3 className="text-lg font-bold text-white pt-1">OCS (Outsourced Customer Sales)</h3>
+                  <h3 className="text-lg font-bold text-white pt-1">OCS (Online Customer Sevice)</h3>
                   <p className="text-purple-300 text-sm font-medium">Makro (Part-time)</p>
                   <ul className="text-zinc-400 text-xs pt-2 space-y-1.5 leading-relaxed list-disc list-inside">
                     <li>Picked and packed dynamic customer orders efficiently via Makro PRO app.</li>
@@ -448,129 +444,78 @@ export default function Home() {
               Projects & Personal Labs
             </h2>
             <p className="text-zinc-400 text-sm md:text-base">
-              ผลงานการพัฒนาแอปพลิเคชันและโปรเจกต์ทดลองส่วนตัว
+              ผลงานการพัฒนาแอปพลิเคชันและโปรเจกต์ทดลองส่วนตัว (คลิกที่การ์ดเพื่อดูรายละเอียดเพิ่มเติม)
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects.map((project, idx) => {
-              const hasMedia = (project.screenshots && project.screenshots.length > 0) || (project.videos && project.videos.length > 0);
+          {/* PROJECT GALLERY GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveModalProject(project)}
+                className="group relative h-[320px] rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/80 text-left transition-all duration-300 hover:border-amber-400/80 hover:scale-[1.02] shadow-xl flex flex-col justify-end p-6 cursor-pointer"
+              >
+                {/* Background Image / Cover */}
+                <img
+                  src={project.coverImage}
+                  alt={project.title}
+                  className="absolute inset-0 w-full h-full object-cover object-top opacity-60 group-hover:opacity-85 group-hover:scale-105 transition-all duration-500"
+                  onError={(e) => {
+                    // Fallback if image not found
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
 
-              return (
-                <div
-                  key={idx}
-                  className="p-6 rounded-2xl bg-[#18181b]/80 border border-zinc-800 flex flex-col justify-between space-y-6 hover:border-amber-400/40 hover:bg-[#18181b] transition-all duration-300 group"
-                >
-                  <div className="space-y-3">
-                    
-                    {/* Category Tag & Completion Status */}
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="text-[11px] font-bold text-amber-300 bg-amber-400/10 px-2.5 py-0.5 rounded-full border border-amber-400/20 flex items-center gap-1">
-                        <Sparkles className="w-3 h-3 text-amber-400" />
-                        {project.category}
+                {/* Dark Gradient Overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+
+                {/* Category & Status Pill */}
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 z-10">
+                  <span className="text-[10px] font-bold text-amber-300 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-amber-400/30 flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 text-amber-400" />
+                    {project.category}
+                  </span>
+
+                  {project.isCompleted ? (
+                    <span className="text-[10px] font-medium text-emerald-400 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-emerald-500/30">
+                      {project.status}
+                    </span>
+                  ) : (
+                    <span className="text-[10px] font-medium text-amber-400 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-amber-500/30">
+                      {project.status}
+                    </span>
+                  )}
+                </div>
+
+                {/* Card Content Overlay */}
+                <div className="relative z-10 space-y-2">
+                  <h3 className="text-lg font-bold text-white group-hover:text-amber-300 transition-colors line-clamp-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-xs text-zinc-300 line-clamp-2">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1 pt-1">
+                    {project.techStack.slice(0, 3).map((tech, tIdx) => (
+                      <span key={tIdx} className="text-[10px] px-2 py-0.5 rounded bg-zinc-950/80 text-zinc-300 border border-zinc-800">
+                        {tech}
                       </span>
-
-                      {project.isCompleted ? (
-                        <span className="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20 flex items-center gap-1.5">
-                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                          {project.status}
-                        </span>
-                      ) : (
-                        <span className="text-xs font-medium text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md border border-amber-500/20 flex items-center gap-1.5">
-                          <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse"></span>
-                          {project.status}
-                        </span>
-                      )}
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-xs text-purple-400/80 pt-0.5">{project.subtitle}</p>
-                    </div>
-
-                    <p className="text-zinc-400 text-sm leading-relaxed">
-                      {project.description}
-                    </p>
-
-                    <ul className="text-xs text-zinc-400 space-y-1.5 pt-2 list-disc list-inside">
-                      {project.highlights.map((item, hIdx) => (
-                        <li key={hIdx}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="space-y-4 pt-2">
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.techStack.map((tech, tIdx) => (
-                        <span
-                          key={tIdx}
-                          className="text-xs px-2.5 py-1 rounded-md bg-zinc-900 text-zinc-300 border border-zinc-800"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-zinc-800 text-sm">
-                      {project.githubUrl && (
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors"
-                        >
-                          <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                          </svg>
-                          Source Code
-                        </a>
-                      )}
-
-                      <div className="flex items-center gap-3 ml-auto">
-                        {/* ปุ่มเปิด Modal แสดงคลิปสาธิต */}
-                        {hasMedia && (
-                          <button
-                            onClick={() => {
-                              setActiveModalImages(project.screenshots || []);
-                              setActiveModalVideos(project.videos || []);
-                              setModalTitle(project.title);
-                            }}
-                            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-zinc-950 text-xs font-bold transition-all shadow-lg shadow-amber-400/25 hover:shadow-amber-400/40 active:scale-95 cursor-pointer"
-                          >
-                            {project.videos && project.videos.length > 0 ? (
-                              <VideoIcon className="w-3.5 h-3.5 stroke-[2.5]" />
-                            ) : (
-                              <ImageIcon className="w-3.5 h-3.5 stroke-[2.5]" />
-                            )}
-                            <span>ดูตัวอย่างแอป</span>
-                          </button>
-                        )}
-
-                        {/* ปุ่ม Live Demo สำหรับเปิดทดลองใช้เว็บจริง */}
-                        {project.demoUrl && (
-                          <a
-                            href={project.demoUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-zinc-950 text-xs font-bold transition-all shadow-lg shadow-amber-400/25 hover:shadow-amber-400/40 active:scale-95"
-                          >
-                            <span>ทดลองใช้แอป</span>
-                            <ExternalLink className="w-3.5 h-3.5 stroke-[2.5]" />
-                          </a>
-                        )}
-                      </div>
-
-                    </div>
+                    ))}
+                    {project.techStack.length > 3 && (
+                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-950/80 text-amber-400 border border-zinc-800 font-bold">
+                        +{project.techStack.length - 3}
+                      </span>
+                    )}
                   </div>
                 </div>
-              );
-            })}
+              </button>
+            ))}
           </div>
 
-          {/* ==================== LANGUAGES & HOBBIES SECTION (ย้ายมาไว้ใต้ PROJECTS) ==================== */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-6">
+          {/* ==================== LANGUAGES & HOBBIES SECTION (อยู่ใต้ PROJECTS) ==================== */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-6 border-t border-zinc-800/40">
             
             {/* Left: Languages Card */}
             <div className="lg:col-span-5 p-6 rounded-2xl bg-[#18181b]/60 border border-zinc-800 space-y-6">
@@ -707,65 +652,121 @@ export default function Home() {
 
       </main>
 
-      {/* ==================== MEDIA POPUP MODAL ==================== */}
-      {(activeModalImages || activeModalVideos) && (
+      {/* ==================== PROJECT DETAILS POPUP MODAL ==================== */}
+      {activeModalProject && (
         <div 
           className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 animate-fadeIn"
-          onClick={closeModal}
+          onClick={() => setActiveModalProject(null)}
         >
           <div 
-            className="bg-[#18181b] border border-zinc-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl flex flex-col relative"
+            className="bg-[#18181b] border border-zinc-800 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden shadow-2xl flex flex-col relative"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="p-4 border-b border-zinc-800 flex items-center justify-between">
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                {activeModalVideos && activeModalVideos.length > 0 ? (
-                  <VideoIcon className="w-4 h-4 text-amber-400" />
-                ) : (
-                  <ImageIcon className="w-4 h-4 text-amber-400" />
-                )}
-                {modalTitle} — ตัวอย่างผลงาน
-              </h3>
+            <div className="p-4 border-b border-zinc-800 flex items-center justify-between bg-zinc-900/50">
+              <div className="flex items-center gap-2">
+                <FolderGit2 className="w-5 h-5 text-amber-400" />
+                <h3 className="text-base font-bold text-white">
+                  {activeModalProject.title}
+                </h3>
+              </div>
               <button
-                onClick={closeModal}
+                onClick={() => setActiveModalProject(null)}
                 className="p-1 rounded-lg hover:bg-zinc-800 text-zinc-400 hover:text-white transition-colors cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Modal Body: Scrollable Media Gallery */}
-            <div className="p-6 overflow-y-auto space-y-8 max-h-[75vh]">
+            {/* Modal Body */}
+            <div className="p-6 overflow-y-auto space-y-6 max-h-[75vh]">
               
-              {/* MULTIPLE VIDEOS SECTION */}
-              {activeModalVideos && activeModalVideos.map((vid, vIdx) => (
-                <div key={vIdx} className="space-y-2">
-                  <h4 className="text-sm font-semibold text-amber-400 flex items-center gap-2">
-                    <VideoIcon className="w-4 h-4" />
-                    {vid.title}
-                  </h4>
-                  <div className="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 flex items-center justify-center">
-                    {vid.url.includes('youtube.com') || vid.url.includes('youtu.be') ? (
-                      <iframe
-                        src={vid.url}
-                        title={vid.title}
-                        className="w-full aspect-video rounded-xl"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    ) : (
-                      <video 
-                        controls 
-                        className="w-full max-h-[450px] rounded-xl object-contain bg-black"
-                      >
-                        <source src={vid.url} type="video/mp4" />
-                        เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอนี้
-                      </video>
-                    )}
-                  </div>
+              {/* Category & Status */}
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-bold text-amber-300 bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">
+                  {activeModalProject.category}
+                </span>
+                <span className="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+                  {activeModalProject.status}
+                </span>
+              </div>
+
+              {/* Description */}
+              <div className="space-y-1">
+                <h4 className="text-xs font-mono uppercase text-purple-300 tracking-wider">About Project</h4>
+                <p className="text-zinc-300 text-sm leading-relaxed">
+                  {activeModalProject.description}
+                </p>
+              </div>
+
+              {/* Highlights - ไม่มีกรอบ ใช้สีฟอนต์เดียวกับ About Project */}
+              <div className="space-y-2">
+                <h4 className="text-xs font-mono uppercase text-purple-300 tracking-wider">Key Highlights</h4>
+                <ul className="text-xs text-zinc-300 space-y-2 list-disc list-inside leading-relaxed p-1">
+                  {activeModalProject.highlights.map((item: string, hIdx: number) => (
+                    <li key={hIdx}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Tech Stack */}
+              <div className="space-y-2">
+                <h4 className="text-xs font-mono uppercase text-purple-300 tracking-wider">Technologies Used</h4>
+                <div className="flex flex-wrap gap-1.5">
+                  {activeModalProject.techStack.map((tech: string, tIdx: number) => (
+                    <span key={tIdx} className="text-xs px-3 py-1 rounded-lg bg-zinc-900 text-zinc-200 border border-zinc-800">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              {/* Videos Gallery (if any) */}
+              {activeModalProject.videos && activeModalProject.videos.length > 0 && (
+                <div className="space-y-3 pt-2">
+                  <h4 className="text-xs font-mono uppercase text-purple-300 tracking-wider">Project Demos</h4>
+                  {activeModalProject.videos.map((vid: any, vIdx: number) => (
+                    <div key={vIdx} className="space-y-1.5">
+                      <p className="text-xs text-amber-400 font-semibold">{vid.title}</p>
+                      <div className="rounded-xl overflow-hidden border border-zinc-800 bg-black flex items-center justify-center">
+                        <video controls className="w-full max-h-[350px] object-contain">
+                          <source src={vid.url} type="video/mp4" />
+                          เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอนี้
+                        </video>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Action Buttons (GitHub / Demo) */}
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-zinc-800">
+                {activeModalProject.githubUrl && (
+                  <a
+                    href={activeModalProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-white transition-colors"
+                  >
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                    Source Code
+                  </a>
+                )}
+
+                {activeModalProject.demoUrl && (
+                  <a
+                    href={activeModalProject.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-amber-400 hover:bg-amber-300 text-zinc-950 text-xs font-bold transition-all shadow-lg shadow-amber-400/20 active:scale-95 ml-auto"
+                  >
+                    <span>ทดลองใช้แอป</span>
+                    <ExternalLink className="w-3.5 h-3.5 stroke-[2.5]" />
+                  </a>
+                )}
+              </div>
 
             </div>
           </div>
