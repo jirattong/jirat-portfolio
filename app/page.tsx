@@ -17,7 +17,8 @@ import {
   Phone,
   Globe,
   Heart,
-  ArrowUp
+  ArrowUp,
+  Award
 } from 'lucide-react';
 
 export default function Home() {
@@ -64,6 +65,38 @@ export default function Home() {
     { label: 'Anime', icon: '🍿' },
   ];
 
+  // 1.5 รายการประกาศนียบัตร (Certificates - 4 ช่อง)
+  const certificatesList = [
+    {
+      title: 'การอบรม "ปัญญาประดิษฐ์กับภาพทางการแพทย์ ครั้งที่ ๒/๒๕๖๘',
+      issuer: 'Issuing Organization / Institute',
+      date: '2025',
+      description: 'เข้าร่วมการอบรมเชิงลึกด้านการประยุกต์ใช้เทคโนโลยีปัญญาประดิษฐ์ (AI) ในการวิเคราะห์และประมวลผลภาพถ่ายทางการแพทย์ (Medical Image Analysis) จัดขึ้น ณ มหาวิทยาลัยพะเยา เสริมสร้างความรู้ในการนำอัลกอริทึมมาช่วยประมวลผลข้อมูลสุขภาพและสนับสนุนการวินิจฉัยทางการแพทย์',
+      image: '/cert-1.png',
+    },
+    {
+      title: 'หลักสูตรการใช้ LLM ผ่านการเชื่อมต่อ API ด้วยทักษะระดับนักพัฒนาระบบ AI เบื้องต้น',
+      issuer: 'Issuing Organization / Institute',
+      date: '2025',
+      description: 'ผ่านการอบรมเชิงปฏิบัติการในโครงการพัฒนาโครงสร้างพื้นฐานปัญญาประดิษฐ์สำหรับภาษาไทย (ThaiLLM) ครอบคลุมทักษะการประยุกต์ใช้งาน โมเดลภาษาขนาดใหญ่ (Large Language Model) การเชื่อมต่อ API สำหรับนักพัฒนา AI เบื้องต้น เพื่อนำไปต่อยอดในการพัฒนาแอปพลิเคชันและระบบประมวลผลภาษาธรรมชาติ (NLP)',
+      image: '/cert-2.png',
+    },
+    {
+      title: 'Course B (Computer Science Concepts)',
+      issuer: 'Issuing Organization / Institute',
+      date: '2024',
+      description: 'สำเร็จการศึกษาหลักสูตรวิทยาการคอมพิวเตอร์พื้นฐาน (Course B) จาก Code.org ครอบคลุมการเรียนรู้แนวคิดพื้นฐานทางคอมพิวเตอร์ ตรรกะการโปรแกรม (Programming Logic) ลำดับขั้นตอน (Algorithms) และการแก้ไขปัญหาอย่างเป็นระบบ (Computational Thinking)',
+      image: '/cert-3.png',
+    },
+    {
+      title: 'Big Data 101',
+      issuer: 'Issuing Organization / Institute',
+      date: '2024',
+      description: 'ผ่านการศึกษาและทดสอบในหลักสูตร Big Data 101 จาก IBM ครอบคลุมแนวคิดพื้นฐานของข้อมูลขนาดใหญ่ (Big Data Concepts) สถาปัตยกรรมข้อมูล ระบบนิเวศของเทคโนโลยี Big Data และแนวทางการประมวลผลข้อมูลในระดับอุตสาหกรรม',
+      image: '/cert-4.png',
+    },
+  ];
+
   // 2. รายการผลงาน (Projects) พร้อมรูป Cover Image
   const projects = [
     {
@@ -73,11 +106,11 @@ export default function Home() {
       category: 'Academic Capstone',
       status: 'เสร็จสมบูรณ์ (โปรเจกต์จบ)',
       isCompleted: true,
-      description: 'แอปพลิเคชันมือถือแบบ Cross-platform สำหรับควบคุมอุปกรณ์ IOT ด้วยท่าทาง (Gesture Control) ประมวลผลภาพจากกล้องแบบ Real-time ร่วมกับ Machine Learning',
+      description: 'แอปพลิเคชันมือถือแบบ Cross-platform สำหรับควบคุมอุปกรณ์ด้วยท่าทาง (Gesture Control) ประมวลผลภาพจากกล้องแบบ Real-time ร่วมกับ Machine Learning',
       highlights: [
         'ใช้ Google ML Kit Pose Detection API ตรวจจับและวิเคราะห์พิกัดโครงสร้างร่างกายแบบ Real-time',
-        'ประยุกต์ใช้ KNN Algorithm และ 3-State Machine รองรับการจดจำและจำแนก ท่าทางกำหนดเองแบบส่วนบุคคล (User-Defined Gestures) ได้ทันที',
-        'ใช้ Firebase Realtime Database ทำหน้าที่เป็น IoT Bridge ซิงโครไนซ์คำสั่งแบบ Real-time และความหน่วงต่ำ',
+        'ประยุกต์ใช้ K-Nearest Neighbors (KNN) และ 3-State Machine ตรวจจับและจำแนกท่าทางของผู้ใช้',
+        'เชื่อมต่อ Firebase Realtime Database ส่งคำสั่งความหน่วงต่ำ (Low-latency)',
         'จำลองการสั่งการหุ่นยนต์ใน 2D Environment ด้วย ROS TurtleSim Simulation',
       ],
       techStack: ['Flutter', 'Dart', 'Google ML Kit', 'KNN Algorithm', 'Firebase', 'ROS'],
@@ -104,12 +137,10 @@ export default function Home() {
       isCompleted: false,
       description: 'การพัฒนาแพลตฟอร์มสารสนเทศสำหรับติดตามสถานะและตำแหน่ง แจ้งเตือนเชิงพื้นที่ และประสานเส้นทางรถพยาบาลฉุกเฉินเพื่อสนับสนุนการส่งต่อผู้ป่วยฉุกเฉินในประเทศไทย',
       highlights: [
-        'ระบบตรวจจับพิกัดด้วย Geofencing แจ้งเตือนผู้ขับขี่บนท้องถนนล่วงหน้าด้วยป๊อปอัปกลางจอและสัญญาณเสียง พร้อมแสดงระยะทางถอยหลังแบบ Real-time ช่วยให้ผู้ใช้รถใช้ถนนเบี่ยงหลบทางได้อย่างทันท่วงที',
-        'เจ้าหน้าที่บนรถพยาบาลสามารถเลือกเปิด/ปิดการส่งสัญญาณเตือนภัย (Notification Alert) เฉพาะยามมีเคสเร่งด่วน พร้อมโหมดทางหลวง (Highway Mode) และ GPS ความละเอียดสูง เพื่อขยายรัศมีการยิงสัญญาณเตือนตามสภาพการจราจร',
-        'รองรับการอัปเดตสถานะการปฏิบัติงานแบบ 5 ขั้นตอน (ตั้งแต่รับเคส ถึงจุดเกิดเหตุ รับผู้ป่วย นำส่ง รพ.) พร้อมระบบคูลดาวน์นับถอยหลังป้องกันการกดเปลี่ยนสถานะพลาดขณะรถวิ่ง',
-        'เจ้าหน้าที่กู้ชีพสามารถถ่ายและอัปเดตรูปภาพเหตุการณ์หน้างานส่งตรงไปยังห้องฉุกเฉิน (ER) ของโรงพยาบาลปลายทาง เพื่อให้ทีมแพทย์และพยาบาลเตรียมอุปกรณ์และเตียงรอรับผู้ป่วยได้ทันที'
+        'ออกแบบ UI/UX บน Figma ให้ใช้งานง่ายและเข้าถึงสะดวก',
+        'พัฒนาระบบด้วย flutter และ เทคโนโลยี Geofencing',
       ],
-      techStack: ['Flutter', 'Dart', 'Figma', 'OpenStreetMap', 'Geofencing & Distance Engine'],
+      techStack: ['Flutter', 'Dart', 'Figma'],
       githubUrl: 'https://github.com/jirattong/route-alert-app',
       demoUrl: '',
       videos: [],
@@ -122,13 +153,13 @@ export default function Home() {
       category: 'Personal Project',
       status: 'Side Project',
       isCompleted: true,
-      description: 'แอปพลิเคชันส่วนตัวสำหรับบันทึกประวัติการบำรุงรักษารถมอเตอร์ไซค์ บูรณาการ AI Chatbot จาก Google Gemini API (Free Key) คอยวิเคราะห์อาการเสีย ให้คำแนะนำเทคนิค และตอบข้อสงสัยแบบเรียลไทม์',
+      description: 'แอปพลิเคชันส่วนตัวสำหรับบันทึกประวัติการบำรุงรักษารถมอเตอร์ไซค์ บูรณาการ LLM จาก Google Gemini API (Free Key) คอยวิเคราะห์อาการเสีย ให้คำแนะนำเทคนิค และตอบข้อสงสัยแบบเรียลไทม์',
       highlights: [
         'พัฒนาระบบบันทึกประวัติการเปลี่ยนถ่ายน้ำมันเครื่อง อะไหล่ และการเช็กระยะสภาพรถส่วนตัว',
-        'เชื่อมต่อ AI Chatbot ผ่าน Google Gemini API (Free Tier Key) วิเคราะห์อาการประมวลผลคำตอบเกี่ยวกับมอเตอร์ไซค์',
+        'เชื่อมต่อ LLM ผ่าน Google Gemini API (Free Tier Key) วิเคราะห์อาการประมวลผลคำตอบเกี่ยวกับมอเตอร์ไซค์',
         'ช่วยบริหารจัดการประวัติการซ่อมบำรุง ค้นหาข้อมูล และรับคำแนะนำด้านเทคนิครถมอเตอร์ไซค์อย่างมีประสิทธิภาพ',
       ],
-      techStack: ['TypeScript', 'Google Gemini API', 'Tailwind CSS', 'Generative AI Integrated System'],
+      techStack: ['TypeScript', 'Google Gemini API', 'Tailwind CSS', 'GitHub'],
       githubUrl: 'https://github.com/jirattong/moto-maintenance',
       demoUrl: 'https://moto-maintenance-nine.vercel.app/',
       videos: [],
@@ -157,6 +188,7 @@ export default function Home() {
             <a href="#education-experience" className="hover:text-amber-400 transition-colors">Resume</a>
             <a href="#skills" className="hover:text-amber-400 transition-colors">Skills</a>
             <a href="#projects" className="hover:text-amber-400 transition-colors">Projects</a>
+            <a href="#certificates" className="hover:text-amber-400 transition-colors">Certificates</a>
           </nav>
 
           {/* VIBRANT YELLOW PILL BUTTON */}
@@ -179,7 +211,6 @@ export default function Home() {
         {/* ==================== 1. EDITORIAL HERO SECTION ==================== */}
         <section id="about" className="relative min-h-[75vh] sm:min-h-[80vh] flex items-center justify-center py-6 sm:py-8 overflow-hidden scroll-mt-24">
           
-          {/* ซ่อนคำว่า PORTFOLIO พื้นหลังในมือถือ เพื่อป้องกันการดันขอบขวาบวมล้น */}
           <div className="absolute inset-0 hidden lg:flex flex-col justify-center items-center pointer-events-none select-none opacity-5 leading-none font-extrabold tracking-widest text-[11vw] uppercase text-white space-y-2">
             <div>PORTFOLIO</div>
             <div>PORTFOLIO</div>
@@ -211,7 +242,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Overlapping Intro Box - บนมือถือให้อยู่ใต้รูปไม่เกยทับข้อความ / บนคอมพ์ลอยทับมุมซ้ายล่าง */}
+                {/* Overlapping Intro Box */}
                 <div className="relative mt-4 lg:mt-0 lg:absolute lg:-bottom-6 lg:-left-4 max-w-full lg:max-w-[280px] bg-amber-400 text-zinc-950 p-3.5 sm:p-4 rounded-xl text-xs font-bold shadow-xl space-y-1 z-20">
                   <p className="leading-relaxed">
                     &quot;Computer Science student focused on crafting the best possible solutions through performance optimization and continuous learning.&quot;
@@ -237,7 +268,7 @@ export default function Home() {
                 สวัสดีครับ ผม นายจิรัฏฐ์ ปานันตา นิสิตสาขาวิทยาการคอมพิวเตอร์ ปี 4 มหาวิทยาลัยพะเยา พร้อมมุ่งมั่นที่จะเรียนรู้เทคโนโลยีใหม่ๆ และนำทักษะที่ได้ไปต่อยอดในการทำงานจริงร่วมกับทีมครับ
               </p>
 
-              {/* Contact Links as Badges (เรียงตัวยืดหยุ่นไม่ดันขอบล้น) */}
+              {/* Contact Links as Badges */}
               <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 pt-2">
                 <a
                   href="https://github.com/jirattong"
@@ -563,6 +594,58 @@ export default function Home() {
 
         </section>
 
+        {/* ==================== 5. CERTIFICATES SECTION (2*2 GRID) ==================== */}
+        <section id="certificates" className="py-10 sm:py-12 space-y-8 sm:space-y-10 border-t border-zinc-800/60 scroll-mt-24">
+          
+          <div className="text-center space-y-2">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white flex items-center justify-center gap-2">
+              <Award className="w-6 h-6 sm:w-7 sm:h-7 text-amber-400" />
+              Certificates & Achievements
+            </h2>
+            <p className="text-zinc-400 text-xs sm:text-sm md:text-base">
+              ประกาศนียบัตรและการอบรมพัฒนาทักษะวิชาชีพ
+            </p>
+          </div>
+
+          {/* CERTIFICATES GRID 2*2 (แสดงภาพเต็มผืนในกรอบและคำอธิบายใต้ภาพ) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            {certificatesList.map((cert, idx) => (
+              <div
+                key={idx}
+                className="p-5 sm:p-6 rounded-2xl bg-[#18181b]/60 border border-zinc-800 flex flex-col space-y-4 shadow-lg"
+              >
+                {/* Cert Image Container (แสดงรูปภาพแบบ object-contain เห็นรูปเต็มใบ) */}
+                <div className="relative w-full aspect-[16/11] sm:aspect-[16/10] rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800/80 flex items-center justify-center p-2">
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
+                    className="w-full h-full object-contain object-center"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                  <div className="absolute inset-0 -z-10 bg-zinc-900 flex flex-col items-center justify-center p-4 text-center text-zinc-500">
+                    <Award className="w-10 h-10 mb-2 text-zinc-600" />
+                    <span className="text-xs font-mono">{cert.image}</span>
+                  </div>
+                </div>
+
+                {/* Cert Details & Description */}
+                <div className="space-y-2 pt-1">
+                  <h3 className="text-base sm:text-lg font-bold text-white leading-snug">
+                    {cert.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-1">
+                    {cert.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </section>
+
         {/* ==================== FOOTER ==================== */}
         <footer className="pt-12 sm:pt-16 pb-8 border-t border-zinc-800/80 space-y-10 sm:space-y-12">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start">
@@ -594,6 +677,9 @@ export default function Home() {
                 </li>
                 <li>
                   <a href="#projects" className="hover:text-white transition-colors">Projects</a>
+                </li>
+                <li>
+                  <a href="#certificates" className="hover:text-white transition-colors">Certificates</a>
                 </li>
               </ul>
             </div>
@@ -697,7 +783,7 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Highlights - ไม่มีกรอบ ใช้สีฟอนต์เดียวกับ About Project */}
+              {/* Highlights */}
               <div className="space-y-2">
                 <h4 className="text-xs font-mono uppercase text-purple-300 tracking-wider">Key Highlights</h4>
                 <ul className="text-xs text-zinc-300 space-y-2 list-disc list-inside leading-relaxed p-1">
