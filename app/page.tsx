@@ -189,6 +189,7 @@ export default function Home() {
             <a href="#skills" className="hover:text-amber-400 transition-colors">Skills</a>
             <a href="#projects" className="hover:text-amber-400 transition-colors">Projects</a>
             <a href="#certificates" className="hover:text-amber-400 transition-colors">Certificates</a>
+            <a href="#languages-hobbies" className="hover:text-amber-400 transition-colors">Others</a>
           </nav>
 
           {/* VIBRANT YELLOW PILL BUTTON */}
@@ -321,9 +322,20 @@ export default function Home() {
                 <div className="relative group">
                   <div className="absolute -left-[23px] sm:-left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
                   
-                  <span className="text-xs font-semibold text-amber-400 tracking-wider">2023 – PRESENT</span>
+                  {/* Header Row: Date + Logo */}
+                  <div className="flex items-center justify-between gap-3 mb-1">
+                    <span className="text-xs font-semibold text-amber-400 tracking-wider">2023 – PRESENT</span>
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center shrink-0">
+                      <img
+                        src="/up-logo.png"
+                        alt="University of Phayao Logo"
+                        className="w-full h-full object-contain"
+                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                      />
+                    </div>
+                  </div>
                   
-                  <h3 className="text-base sm:text-lg font-bold text-white pt-1">Bachelor of Science (Computer Science)</h3>
+                  <h3 className="text-base sm:text-lg font-bold text-white pt-0.5">Bachelor of Science (Computer Science)</h3>
                   <p className="text-zinc-300 text-xs sm:text-sm font-medium">University of Phayao</p>
                   <p className="text-zinc-400 text-xs pt-1">School of Information and Communication Technology</p>
                   <div className="pt-2">
@@ -337,9 +349,20 @@ export default function Home() {
                 <div className="relative group">
                   <div className="absolute -left-[23px] sm:-left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500/60 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
                   
-                  <span className="text-xs font-semibold text-amber-400/80 tracking-wider">2020 – 2022</span>
+                  {/* Header Row: Date + Logo */}
+                  <div className="flex items-center justify-between gap-3 mb-1">
+                    <span className="text-xs font-semibold text-amber-400/80 tracking-wider">2020 – 2022</span>
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center shrink-0">
+                      <img
+                        src="/pky-logo.png"
+                        alt="Phayaophitthayakhom School Logo"
+                        className="w-full h-full object-contain"
+                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                      />
+                    </div>
+                  </div>
                   
-                  <h3 className="text-base sm:text-lg font-bold text-white pt-1">High School Diploma in Arts-Language (English)</h3>
+                  <h3 className="text-base sm:text-lg font-bold text-white pt-0.5">High School Diploma in Arts-Language (English)</h3>
                   <p className="text-zinc-300 text-xs sm:text-sm font-medium">Phayaophitthayakhom School</p>
                   <div className="pt-2">
                     <span className="inline-block px-2.5 py-0.5 rounded bg-zinc-800 text-zinc-300 text-xs font-semibold border border-zinc-700">
@@ -364,9 +387,20 @@ export default function Home() {
                 <div className="relative group">
                   <div className="absolute -left-[23px] sm:-left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
                   
-                  <span className="text-xs font-semibold text-amber-400 tracking-wider">MAR 2025 – MAY 2025</span>
+                  {/* Header Row: Date + Logo */}
+                  <div className="flex items-center justify-between gap-3 mb-1">
+                    <span className="text-xs font-semibold text-amber-400 tracking-wider">MAR 2025 – MAY 2025</span>
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center shrink-0">
+                      <img
+                        src="/makro-logo.png"
+                        alt="Makro Logo"
+                        className="w-full h-full object-contain"
+                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                      />
+                    </div>
+                  </div>
                   
-                  <h3 className="text-base sm:text-lg font-bold text-white pt-1">OCS (Online Customer Service)</h3>
+                  <h3 className="text-base sm:text-lg font-bold text-white pt-0.5">OCS (Online Customer Service)</h3>
                   <p className="text-purple-300 text-xs sm:text-sm font-medium">Makro (Part-time)</p>
                   <ul className="text-zinc-400 text-xs pt-2 space-y-1.5 leading-relaxed list-disc list-inside">
                     <li>Picked and packed dynamic customer orders efficiently via Makro PRO app.</li>
@@ -379,9 +413,20 @@ export default function Home() {
                 <div className="relative group">
                   <div className="absolute -left-[23px] sm:-left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-purple-500/60 border-4 border-[#0e0e10] group-hover:scale-125 transition-transform" />
                   
-                  <span className="text-xs font-semibold text-amber-400/80 tracking-wider">2024 – 2025</span>
+                  {/* Header Row: Date + Logo */}
+                  <div className="flex items-center justify-between gap-3 mb-1">
+                    <span className="text-xs font-semibold text-amber-400/80 tracking-wider">2024 – 2025</span>
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center shrink-0">
+                      <img
+                        src="/rally-logo.png"
+                        alt="Rally Logo"
+                        className="w-full h-full object-contain"
+                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                      />
+                    </div>
+                  </div>
                   
-                  <h3 className="text-base sm:text-lg font-bold text-white pt-1">Lead Developer — Rally Application</h3>
+                  <h3 className="text-base sm:text-lg font-bold text-white pt-0.5">Lead Developer — Rally Application</h3>
                   <p className="text-zinc-300 text-xs sm:text-sm font-medium">University Capstone Project</p>
                   <p className="text-zinc-400 text-xs pt-2 leading-relaxed">
                     Designed and developed real-time pose analysis mobile app using Flutter & Google ML Kit API to track human coordinates and control remote devices.
@@ -543,8 +588,63 @@ export default function Home() {
             ))}
           </div>
 
-          {/* ==================== LANGUAGES & HOBBIES SECTION ==================== */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start pt-6 border-t border-zinc-800/40">
+        </section>
+
+        {/* ==================== 5. CERTIFICATES SECTION (2*2 GRID) ==================== */}
+        <section id="certificates" className="py-10 sm:py-12 space-y-8 sm:space-y-10 border-t border-zinc-800/60 scroll-mt-24">
+          
+          <div className="text-center space-y-2">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white flex items-center justify-center gap-2">
+              <Award className="w-6 h-6 sm:w-7 sm:h-7 text-amber-400" />
+              Certificates & Achievements
+            </h2>
+            <p className="text-zinc-400 text-xs sm:text-sm md:text-base">
+              ประกาศนียบัตรและการอบรมพัฒนาทักษะวิชาชีพ
+            </p>
+          </div>
+
+          {/* CERTIFICATES GRID 2*2 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+            {certificatesList.map((cert, idx) => (
+              <div
+                key={idx}
+                className="p-5 sm:p-6 rounded-2xl bg-[#18181b]/60 border border-zinc-800 flex flex-col space-y-4 shadow-lg h-full"
+              >
+                {/* Cert Image Container */}
+                <div className="relative w-full aspect-[16/11] rounded-xl overflow-hidden shrink-0">
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
+                    className="w-full h-full object-cover object-center"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                  <div className="absolute inset-0 -z-10 bg-zinc-900 flex flex-col items-center justify-center p-4 text-center text-zinc-500">
+                    <Award className="w-10 h-10 mb-2 text-zinc-600" />
+                    <span className="text-xs font-mono">{cert.image}</span>
+                  </div>
+                </div>
+
+                {/* Cert Details & Description */}
+                <div className="flex-1 flex flex-col space-y-2 pt-1">
+                  <h3 className="text-base sm:text-lg font-bold text-white leading-snug">
+                    {cert.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-1">
+                    {cert.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </section>
+
+        {/* ==================== 6. LANGUAGES & HOBBIES SECTION (ย้ายมาอยู่ล่างสุดก่อน FOOTER) ==================== */}
+        <section id="languages-hobbies" className="py-10 sm:py-12 border-t border-zinc-800/60 scroll-mt-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
             
             {/* Left: Languages Card */}
             <div className="lg:col-span-5 p-5 sm:p-6 rounded-2xl bg-[#18181b]/60 border border-zinc-800 space-y-6">
@@ -591,59 +691,6 @@ export default function Home() {
             </div>
 
           </div>
-
-        </section>
-
-        {/* ==================== 5. CERTIFICATES SECTION (2*2 GRID) ==================== */}
-        <section id="certificates" className="py-10 sm:py-12 space-y-8 sm:space-y-10 border-t border-zinc-800/60 scroll-mt-24">
-          
-          <div className="text-center space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white flex items-center justify-center gap-2">
-              <Award className="w-6 h-6 sm:w-7 sm:h-7 text-amber-400" />
-              Certificates & Achievements
-            </h2>
-            <p className="text-zinc-400 text-xs sm:text-sm md:text-base">
-              ประกาศนียบัตรและการอบรมพัฒนาทักษะวิชาชีพ
-            </p>
-          </div>
-
-          {/* CERTIFICATES GRID 2*2 (แสดงภาพเต็มผืนในกรอบและคำอธิบายใต้ภาพ) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {certificatesList.map((cert, idx) => (
-              <div
-                key={idx}
-                className="p-5 sm:p-6 rounded-2xl bg-[#18181b]/60 border border-zinc-800 flex flex-col space-y-4 shadow-lg"
-              >
-                {/* Cert Image Container (แสดงรูปภาพแบบ object-contain เห็นรูปเต็มใบ) */}
-                <div className="relative w-full aspect-[16/11] sm:aspect-[16/10] rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800/80 flex items-center justify-center p-2">
-                  <img
-                    src={cert.image}
-                    alt={cert.title}
-                    className="w-full h-full object-contain object-center"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                    }}
-                  />
-                  <div className="absolute inset-0 -z-10 bg-zinc-900 flex flex-col items-center justify-center p-4 text-center text-zinc-500">
-                    <Award className="w-10 h-10 mb-2 text-zinc-600" />
-                    <span className="text-xs font-mono">{cert.image}</span>
-                  </div>
-                </div>
-
-                {/* Cert Details & Description */}
-                <div className="space-y-2 pt-1">
-                  <h3 className="text-base sm:text-lg font-bold text-white leading-snug">
-                    {cert.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-1">
-                    {cert.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
         </section>
 
         {/* ==================== FOOTER ==================== */}
