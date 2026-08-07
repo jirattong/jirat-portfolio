@@ -43,7 +43,7 @@ export default function Home() {
   // 1.2 ทักษะทางด้าน Soft Skills
   const softSkills = [
     '#Teamwork & Collaboration',
-    '#Fast Learner',
+    '#Adaptability',
     '#Effective Communication',
     '#Problem-Solving',
     '#Time Management',
