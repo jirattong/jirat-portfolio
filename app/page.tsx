@@ -31,7 +31,7 @@ export default function Home() {
     },
     {
       title: 'Programming Languages',
-      skills: ['Dart', 'Python', 'C', 'C++', 'TypeScript / JS'],
+      skills: ['Dart', 'Python', 'HTML', 'CSS', 'TypeScript / JS','SQL'],
     },
     {
       title: 'Technical Tools & Platforms',
