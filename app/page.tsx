@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { 
-  Download, 
   Mail, 
   Code2, 
   GraduationCap, 
@@ -97,7 +96,7 @@ export default function Home() {
     },
   ];
 
-  // 2. รายการผลงาน (Projects) พร้อมรูป Cover Image
+  // 2. รายการผลงาน (Projects)
   const projects = [
     {
       title: 'Rally Application — Real-Time Pose Analysis',
@@ -106,11 +105,11 @@ export default function Home() {
       category: 'Academic Capstone',
       status: 'เสร็จสมบูรณ์ (โปรเจกต์จบ)',
       isCompleted: true,
-      description: 'แอปพลิเคชันมือถือแบบ Cross-platform สำหรับควบคุมอุปกรณ์ IOT ด้วยท่าทาง (Gesture Control) ประมวลผลภาพจากกล้องแบบ Real-time ร่วมกับ Machine Learning',
+      description: 'แอปพลิเคชันมือถือแบบ Cross-platform สำหรับควบคุมอุปกรณ์ด้วยท่าทาง (Gesture Control) ประมวลผลภาพจากกล้องแบบ Real-time ร่วมกับ Machine Learning',
       highlights: [
         'ใช้ Google ML Kit Pose Detection API ตรวจจับและวิเคราะห์พิกัดโครงสร้างร่างกายแบบ Real-time',
-        'ประยุกต์ใช้ KNN Algorithm และ 3-State Machine รองรับการจดจำและจำแนก ท่าทางกำหนดเองแบบส่วนบุคคล (User-Defined Gestures) ได้ทันที',
-        'ใช้ Firebase Realtime Database ทำหน้าที่เป็น IoT Bridge ซิงโครไนซ์คำสั่งแบบ Real-time และความหน่วงต่ำ',
+        'ประยุกต์ใช้ K-Nearest Neighbors (KNN) และ 3-State Machine ตรวจจับและจำแนกท่าทางของผู้ใช้',
+        'เชื่อมต่อ Firebase Realtime Database ส่งคำสั่งความหน่วงต่ำ (Low-latency)',
         'จำลองการสั่งการหุ่นยนต์ใน 2D Environment ด้วย ROS TurtleSim Simulation',
       ],
       techStack: ['Flutter', 'Dart', 'Google ML Kit', 'KNN Algorithm', 'Firebase', 'ROS'],
@@ -137,12 +136,10 @@ export default function Home() {
       isCompleted: false,
       description: 'การพัฒนาแพลตฟอร์มสารสนเทศสำหรับติดตามสถานะและตำแหน่ง แจ้งเตือนเชิงพื้นที่ และประสานเส้นทางรถพยาบาลฉุกเฉินเพื่อสนับสนุนการส่งต่อผู้ป่วยฉุกเฉินในประเทศไทย',
       highlights: [
-        'ระบบตรวจจับพิกัดด้วย Geofencing แจ้งเตือนผู้ขับขี่บนท้องถนนล่วงหน้าด้วยป๊อปอัปกลางจอและสัญญาณเสียง พร้อมแสดงระยะทางถอยหลังแบบ Real-time ช่วยให้ผู้ใช้รถใช้ถนนเบี่ยงหลบทางได้อย่างทันท่วงที',
-        'เจ้าหน้าที่บนรถพยาบาลสามารถเลือกเปิด/ปิดการส่งสัญญาณเตือนภัย (Notification Alert) เฉพาะยามมีเคสเร่งด่วน พร้อมโหมดทางหลวง (Highway Mode) และ GPS ความละเอียดสูง เพื่อขยายรัศมีการยิงสัญญาณเตือนตามสภาพการจราจร',
-        'รองรับการอัปเดตสถานะการปฏิบัติงานแบบ 5 ขั้นตอน (ตั้งแต่รับเคส ถึงจุดเกิดเหตุ รับผู้ป่วย นำส่ง รพ.) พร้อมระบบคูลดาวน์นับถอยหลังป้องกันการกดเปลี่ยนสถานะพลาดขณะรถวิ่ง',
-        'เจ้าหน้าที่กู้ชีพสามารถถ่ายและอัปเดตรูปภาพเหตุการณ์หน้างานส่งตรงไปยังห้องฉุกเฉิน (ER) ของโรงพยาบาลปลายทาง เพื่อให้ทีมแพทย์และพยาบาลเตรียมอุปกรณ์และเตียงรอรับผู้ป่วยได้ทันที'
+        'ออกแบบ UI/UX บน Figma ให้ใช้งานง่ายและเข้าถึงสะดวก',
+        'พัฒนาระบบด้วย flutter และ เทคโนโลยี Geofencing',
       ],
-      techStack: ['Flutter', 'Dart', 'Figma','OpenStreetMap','Geofencing & Distance Engine'],
+      techStack: ['Flutter', 'Dart', 'Figma'],
       githubUrl: 'https://github.com/jirattong/route-alert-app',
       demoUrl: '',
       videos: [],
@@ -150,18 +147,18 @@ export default function Home() {
     },
     {
       title: 'Moto Maintenance — Smart Motorcycle Care & AI Advisor',
-      subtitle: 'Personal Vibe Coding Project',
+      subtitle: 'Personal Side Project',
       coverImage: '/moto-thumbnail.png',
       category: 'Personal Project',
-      status: 'Vibe Coding Project',
+      status: 'Side Project',
       isCompleted: true,
-      description: 'แอปพลิเคชันส่วนตัวสำหรับบันทึกประวัติการบำรุงรักษารถมอเตอร์ไซค์ บูรณาการ Generative AI Integrated System จาก Google Gemini API (Free Key) คอยวิเคราะห์อาการเสีย ให้คำแนะนำเทคนิค และตอบข้อสงสัยแบบเรียลไทม์',
+      description: 'แอปพลิเคชันส่วนตัวสำหรับบันทึกประวัติการบำรุงรักษารถมอเตอร์ไซค์ บูรณาการ LLM จาก Google Gemini API (Free Key) คอยวิเคราะห์อาการเสีย ให้คำแนะนำเทคนิค และตอบข้อสงสัยแบบเรียลไทม์',
       highlights: [
         'พัฒนาระบบบันทึกประวัติการเปลี่ยนถ่ายน้ำมันเครื่อง อะไหล่ และการเช็กระยะสภาพรถส่วนตัว',
-        'เชื่อมต่อ ผ่าน Google Gemini API (Free Tier Key) วิเคราะห์อาการประมวลผลคำตอบเกี่ยวกับมอเตอร์ไซค์',
+        'เชื่อมต่อ LLM ผ่าน Google Gemini API (Free Tier Key) วิเคราะห์อาการประมวลผลคำตอบเกี่ยวกับมอเตอร์ไซค์',
         'ช่วยบริหารจัดการประวัติการซ่อมบำรุง ค้นหาข้อมูล และรับคำแนะนำด้านเทคนิครถมอเตอร์ไซค์อย่างมีประสิทธิภาพ',
       ],
-      techStack: ['TypeScript', 'Google Gemini API', 'Tailwind CSS', 'GitHub','Generative AI Integrated System'],
+      techStack: ['TypeScript', 'Google Gemini API', 'Tailwind CSS', 'GitHub'],
       githubUrl: 'https://github.com/jirattong/moto-maintenance',
       demoUrl: 'https://moto-maintenance-nine.vercel.app/',
       videos: [],
@@ -193,17 +190,6 @@ export default function Home() {
             <a href="#certificates" className="hover:text-amber-400 transition-colors">Certificates</a>
             <a href="#languages-hobbies" className="hover:text-amber-400 transition-colors">Others</a>
           </nav>
-
-          {/* VIBRANT YELLOW PILL BUTTON */}
-          <a
-            href="/Resume_JiratP.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-zinc-950 text-[11px] sm:text-xs font-bold transition-all shadow-lg shadow-amber-400/20 active:scale-95 shrink-0"
-          >
-            <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]" />
-            <span>Resume PDF</span>
-          </a>
 
         </div>
       </header>
@@ -644,7 +630,7 @@ export default function Home() {
 
         </section>
 
-        {/* ==================== 6. LANGUAGES & HOBBIES SECTION (ย้ายมาอยู่ล่างสุดก่อน FOOTER) ==================== */}
+        {/* ==================== 6. LANGUAGES & HOBBIES SECTION (อยู่ล่างสุดก่อน FOOTER) ==================== */}
         <section id="languages-hobbies" className="py-10 sm:py-12 border-t border-zinc-800/60 scroll-mt-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
             
@@ -729,6 +715,9 @@ export default function Home() {
                 </li>
                 <li>
                   <a href="#certificates" className="hover:text-white transition-colors">Certificates</a>
+                </li>
+                <li>
+                  <a href="#languages-hobbies" className="hover:text-white transition-colors">Others</a>
                 </li>
               </ul>
             </div>
