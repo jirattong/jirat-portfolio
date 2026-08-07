@@ -150,10 +150,10 @@ export default function Home() {
     },
     {
       title: 'Moto Maintenance — Smart Motorcycle Care & AI Advisor',
-      subtitle: 'Personal Side Project',
+      subtitle: 'Personal Vibe Coding Project',
       coverImage: '/moto-thumbnail.png',
       category: 'Personal Project',
-      status: 'Side Project',
+      status: 'Vibe Coding Project',
       isCompleted: true,
       description: 'แอปพลิเคชันส่วนตัวสำหรับบันทึกประวัติการบำรุงรักษารถมอเตอร์ไซค์ บูรณาการ Generative AI Integrated System จาก Google Gemini API (Free Key) คอยวิเคราะห์อาการเสีย ให้คำแนะนำเทคนิค และตอบข้อสงสัยแบบเรียลไทม์',
       highlights: [
